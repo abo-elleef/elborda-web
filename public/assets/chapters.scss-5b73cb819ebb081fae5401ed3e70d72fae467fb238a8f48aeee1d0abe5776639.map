@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;;;;;;;;;;;AAeA,UAAU;EACR,gBAAgB,EAAE,QAAQ",
+"sources": ["application.scss.erb"],
+"names": [],
+"file": "chapters.scss"
+}

@@ -24,8 +24,18 @@
 /node_modules
 /yarn-error.log
 
-/public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+.idea/*
+.DS_Store
+.sass-cache/*
+app/.DS_Store
+app/assets/.DS_Store
+app/assets/images/.DS_Store
+log/*
+tmp/*
+yarn.lock
+.idea/Burda.iml
+

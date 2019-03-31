@@ -1,0 +1,28 @@
+<% @poems.map.with_index do |poem, poem_index| %>
+	
+	<div class="row">
+				<div class="poem-title text-center col-12  offset-md-3 col-md-6" title="<%= poem.desc %> ">
+					 <%= poem.name %>  لصاحبها  <%= poem.author %> 
+				</div>
+			</div>
+	
+		<% poem.chapters.map.with_index do |chapter, chapter_index| %>
+			<div class="row">
+				<div class="chapter-title text-center col-12 offset-md-3 col-md-6" data-toggle="collapse" data-target="#chapter_<%= chapter.id %>" aria-expanded="false" aria-controls="chapter_<%= chapter.id %>">
+					<%= chapter.name %>
+				</div>
+			</div>
+			<div  class="collapse <%= 'show' if poem_index.zero? && chapter_index.zero? %>" id="chapter_<%= chapter.id %>">
+				<% chapter.lines.map do |line| %>
+				<div class="row">
+					<div class="line-container text-center col-12  offset-md-3 col-md-6 ">
+						<% line.body.split(Line::SEPARATOR).map do |part| %>
+						<%= part %> <br>
+					<% end %>
+					</div>
+				</div>
+				<% end %>
+			</div>
+		<% end %>
+	<hr>
+<% end %>

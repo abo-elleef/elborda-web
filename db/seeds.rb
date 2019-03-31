@@ -1554,7 +1554,7 @@ bordas.map do |borda|
   borda[:chapters].map do |chapter|
     chapter_record = Chapter.create!({name: chapter[:name], desc: chapter[:desc], poem_id: poem.id})
     chapter[:lines].map do |line|
-      Line.create!(body: "#{line[:right]} && #{line[:left]}", chapter_id: chapter_record.id)
+      Line.create!(body: "#{line[:right]} #{Line::SEPARATOR} #{line[:left]}", chapter_id: chapter_record.id)
     end
   end
 end

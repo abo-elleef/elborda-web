@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Burda | <%= Rails.env %>></title>
+    <title>Burda | <%= Rails.env if Rails.env.development? %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

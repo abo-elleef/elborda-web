@@ -1,28 +1,43 @@
-<% @poems.map.with_index do |poem, poem_index| %>
-	
-	<div class="row">
-				<div class="poem-title text-center col-12  offset-md-3 col-md-6" title="<%= poem.desc %> ">
-					 <%= poem.name %>  لصاحبها  <%= poem.author %> 
-				</div>
-			</div>
-	
-		<% poem.chapters.map.with_index do |chapter, chapter_index| %>
-			<div class="row">
-				<div class="chapter-title text-center col-12 offset-md-3 col-md-6" data-toggle="collapse" data-target="#chapter_<%= chapter.id %>" aria-expanded="false" aria-controls="chapter_<%= chapter.id %>">
-					<%= chapter.name %>
-				</div>
-			</div>
-			<div  class="collapse <%= 'show' if poem_index.zero? && chapter_index.zero? %>" id="chapter_<%= chapter.id %>">
-				<% chapter.lines.map do |line| %>
-				<div class="row">
-					<div class="line-container text-center col-12  offset-md-3 col-md-6 ">
-						<% line.body.split(Line::SEPARATOR).map do |part| %>
-						<%= part %> <br>
-					<% end %>
-					</div>
-				</div>
-				<% end %>
-			</div>
-		<% end %>
-	<hr>
-<% end %>
+<div class="row">
+  <div class="col-4">
+    <% @poems.map do |poem| %>
+      <br>
+      <div class="card">
+        <iframe width="auto"  src="https://www.youtube.com/embed/25YRBNoplfo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!--        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/163293604&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>-->
+        <div class="card-body">
+          <h5 class="card-title"><%= poem.name  %></h5>
+          <p class="card-text"><%= poem.desc  %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-8">
+    <div class="row">
+      <div class="poem-title col-6 offset-3 text-center" title="<%= @poem.desc %> ">
+        <%= @poem.name %>  لصاحبها  <%= @poem.author %>
+      </div>
+    </div>
+
+    <% @poem.chapters.map.with_index do |chapter, chapter_index| %>
+      <div class="row">
+        <div class="chapter-title text-center  col-6 offset-3  " data-toggle="collapse" data-target="#chapter_<%= chapter.id %>" aria-expanded="false" aria-controls="chapter_<%= chapter.id %>">
+          <%= chapter.name %>
+        </div>
+      </div>
+      <div class="collapse <%= 'show' if chapter_index.zero? %>" id="chapter_<%= chapter.id %>">
+        <% chapter.lines.map do |line| %>
+          <div class="row">
+            <div class="line-container text-center col-6  offset-3">
+              <% line.body.split(Line::SEPARATOR).map do |part| %>
+                <%= part %> <br>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+</div>

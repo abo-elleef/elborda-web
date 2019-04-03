@@ -26,6 +26,9 @@
         </div>
       </div>
       <div class="collapse <%= 'show' if chapter_index.zero? %>" id="chapter_<%= chapter.id %>">
+        <div class="text-center col-6  offset-3">
+          <iframe width="100%" height="300" scrolling="no" frameborder="no"  src="<%= chapter.links.first.try(:link) %>"></iframe>
+        </div>
         <% chapter.lines.map do |line| %>
           <div class="row">
             <div class="line-container text-center col-6  offset-3">
@@ -41,3 +44,4 @@
 
 
 </div>
+

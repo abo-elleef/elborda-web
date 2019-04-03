@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Burda | <%= Rails.env if Rails.env.development? %></title>
+    <title>Burda <%= '| ' + Rails.env if Rails.env.development? %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,22 @@
   </head>
 
   <body>
+  <div class="header py-3">
+    <div class="container">
+      <a href="#default" class="logo text-white" style="float: right">CompanyLogo</a>
+      <div class="header-right">
+        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.borda215096" class="text-white mr-3">
+          Android App
+        </a>
+        <a target="_blank" href="https://itunes.apple.com/us/app/borda-%D8%A7%D9%84%D8%A8%D8%B1%D8%AF%D8%A9/id1454496619?mt=8" class="text-white mr-3">
+          IPone App
+        </a>
+        <a target="_blank" href="https://www.facebook.com/bordaelmadyh/" class="text-white mr-3" >
+          Facebook Page
+        </a>
+      </div>
+    </div>
+  </div>
     <div class="container">
     <%= yield %>  
     </div>

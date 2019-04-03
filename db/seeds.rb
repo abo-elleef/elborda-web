@@ -1558,3 +1558,8 @@ bordas.map do |borda|
     end
   end
 end
+
+sound_links = [
+
+]
+sound_links.map.with_index do |link, index| Link.create!(link: link, source: 2, linkable_type: 'Chapter', linkable_id: index+ 1) end

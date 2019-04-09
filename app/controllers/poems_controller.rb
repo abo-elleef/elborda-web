@@ -65,6 +65,10 @@ class PoemsController < ApplicationController
     @poem = Poem.includes(:links, {chapters: [:lines, :links]}).find(params[:id])
   end
 
+  def search
+    @poems = Poem.where("name like ?", "%#{params[:q]}%" )
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_poem

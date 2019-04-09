@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :lines
   resources :chapters
   resources :poems do
+    collection do
+      get :search
+    end
     member do
       get :poem_quick_view
     end

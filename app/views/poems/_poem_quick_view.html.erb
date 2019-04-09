@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="poem-title col-12 text-center rtl" title="<%= @poem.desc %> ">
+    <%= poem_link_name(@poem) %>
+  </div>
+</div>
+
+<% @poem.chapters.map.with_index do |chapter, chapter_index| %>
+  <div class="row">
+    <% if chapter.name.present? %>
+      <div class="chapter-title text-center  col-12  " data-toggle="collapse" data-target="#chapter_<%= chapter.id %>" aria-expanded="false" aria-controls="chapter_<%= chapter.id %>">
+        <%= chapter.name %>
+      </div>
+    <% end %>
+  </div>
+  <div class="collapse <%= 'show' if chapter_index.zero? %>" id="chapter_<%= chapter.id %>">
+    <% links = chapter.links.to_a %>
+    <% if links.present? %>
+      <div class="row">
+        <% controls_id = "chapter_#{ chapter.id }_controls" %>
+        <div id="<%= controls_id %>" class="line-container  carousel slide col-12" data-ride="carousel" data-interval="100000000">
+          <div class="carousel-inner">
+            <% links.map.with_index do |link, link_index| %>
+              <div class="carousel-item <%= "active" if link_index.zero? %>">
+                <iframe width="100%" height="300" scrolling="no" frameborder="no" src="<%= link.link %>"></iframe>
+              </div>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#<%= controls_id %>" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#<%= controls_id %>" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+      </div>
+    <% end %>
+    <% chapter.lines.map do |line| %>
+      <div class="row">
+        <div class="line-container text-center col-12 ">
+          <% line.body.split(Line::SEPARATOR).map do |part| %>
+            <%= part %> <br>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

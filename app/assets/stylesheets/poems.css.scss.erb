@@ -8,6 +8,9 @@
 p, h5 {
   text-align: right;
 }
+.rtl {
+  direction: rtl !important;
+}
 body{
   background: url(image-path("bg.png"));
   font-family:  uthmani;
@@ -31,6 +34,24 @@ body{
   background-color: $primary;
 }
 
-.header {
-  background-color: $primary;
+.header img{
+  width: 100px;
+}
+.header a.logo img{
+  width: 30px;
+}
+.header a.facebook img{
+  width: 30px;
+}
+.carousel-control-next, .carousel-control-prev {
+  top: 150px;
+  height: 20px;
+}
+
+
+
+.full-height {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  background: red;
 }

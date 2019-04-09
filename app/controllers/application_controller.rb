@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
 	def home
 		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).all
-		@poem = @poems.first
+		@poem = @poems.find(7)
 		render 'layouts/home'
-	end 
+	end
 end

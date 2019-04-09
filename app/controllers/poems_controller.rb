@@ -61,6 +61,10 @@ class PoemsController < ApplicationController
     end
   end
 
+  def poem_quick_view
+    @poem = Poem.includes(:links, {chapters: [:lines, :links]}).find(params[:id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_poem

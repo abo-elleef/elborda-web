@@ -7,4 +7,8 @@ class Poem < ApplicationRecord
 	def main_link
 		links.first || chapters.includes(:links).map(&:links).flatten.compact.first
 	end
+
+	def desc
+		super.presence || chapters.first.lines.first(2).map(&:body).join(" && ").gsub('&&', ' ..  ')
+	end
 end

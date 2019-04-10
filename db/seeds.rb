@@ -1708,6 +1708,21 @@ bordas = [
                            {right: "قَدَمَنَا الهديه", left: "لِلْعَطِرَةِ الزكيه"},
                            {right: "صَلَاَةٌ عَلَى النبى", left: "هُوَ بَاهَى الْجِمَالُ"},
 
+                       ],
+                       links: [
+                           {
+                               link: "https://www.youtube.com/embed/7WZr3XyITHo",
+                               source: 2
+
+                           }, {
+                               link: "https://www.youtube.com/embed/CNrKSX2jl-c",
+                               source: 2
+
+                           }, {
+                               link: "https://www.youtube.com/embed/NhvtFW69A5g",
+                               source: 2
+
+                           }
                        ]
                    }]
 

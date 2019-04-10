@@ -1,10 +1,16 @@
-$(window).ready(function(){
-    $("#peoms_search").keyup(function(e){
-        console.log(e.target.value);
-        $.ajax({
+var delayTimer;
+$(window).ready(function () {
+    $("#peoms_search").keyup(function (e) {
+        clearTimeout(delayTimer);
+        delayTimer = setTimeout(function () {
+            $.ajax({
                 method: 'get',
                 data: {q: e.target.value},
                 url: "/poems/search"
             })
+        }, 1000);
+
     })
-})
+});
+
+

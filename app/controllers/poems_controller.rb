@@ -63,7 +63,10 @@ class PoemsController < ApplicationController
   end
 
   def poem_quick_view
-    @poem = Poem.includes(:links, {chapters: [:lines, :links]}).find(params[:id])
+    respond_to do |format|
+      format.html { home }
+      format.js { @poem = Poem.includes(:links, {chapters: [:lines, :links]}).find(params[:id]) }
+    end
   end
 
   def search

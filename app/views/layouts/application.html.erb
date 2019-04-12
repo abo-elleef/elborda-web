@@ -7,13 +7,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="title" content="البردة و المدائح " />
+    <meta name="description" content="قصائد مدح المصطفي صلي الله عليه وسلم و اشهرها بردة المديح للامام محمد البصيري" />
+    <link rel="image_src" href="<%= image_url 'icon-white.png' %>" />
   </head>
 
   <body>
   <div class="header py-3">
-    <div class="container">
+    <div class="container pr-0">
       <a href="#default" class="logo text-white" style="float: right">
-        <%= image_tag 'icon.png' %>
+        <%= image_tag 'icon-white.png' %>
       </a>
       <div class="header-right">
         <a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.borda215096" class="text-white mr-3">
@@ -23,7 +27,7 @@
           <%= image_tag 'app_store.svg' %>
         </a>
         <a target="_blank" href="https://www.facebook.com/bordaelmadyh/" class="text-white mr-3 facebook" >
-          <%= image_tag 'facebook.jpg' %>
+          <%= image_tag 'facebook.png' %>
         </a>
       </div>
     </div>

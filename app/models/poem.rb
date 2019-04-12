@@ -9,6 +9,6 @@ class Poem < ApplicationRecord
 	end
 
 	def desc
-		super.presence || chapters.first.lines.first(2).map(&:body).join(" && ").gsub('&&', ' ..  ')
+		super.presence || chapters.first.lines.first(3).map(&:body).join(" && ").gsub('&&', ' ..  ')
 	end
 end

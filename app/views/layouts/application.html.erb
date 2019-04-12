@@ -8,9 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <meta name="title" content="البردة و المدائح " />
-    <meta name="description" content="قصائد مدح المصطفي صلي الله عليه وسلم و اشهرها بردة المديح للامام محمد البصيري" />
-    <link rel="image_src" href="<%= image_url 'icon-white.png' %>" />
+    <meta name="title" content="<%= sharing_title(@poem) %>" />
+    <meta name="description" content="<%= sharing_desc(@poem) %>" />
+    <link rel="image_src" href="<%= image_url 'icon.png' %>" />
   </head>
 
   <body>

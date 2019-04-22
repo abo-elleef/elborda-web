@@ -12,4 +12,19 @@ module ApplicationHelper
   def sharing_desc poem
     poem.blank? ? 'قصائد مدح المصطفي صلي الله عليه وسلم و اشهرها بردة المديح للامام محمد البصيري ' : @poem.desc
   end
+
+  def mobile?
+    agent = request.user_agent
+    return "tablet" if agent =~ /(tablet|ipad)|(android(?!.*mobile))/i
+    return "mobile" if agent =~ /Mobile/
+    return "desktop"
+  end
+
+  def app_store_icon
+    mobile?  ? 'app_store.png' : 'app_store.svg'
+  end
+
+  def play_store_icon
+    mobile?  ? 'play_store.png' : 'play_store.svg'
+  end
 end

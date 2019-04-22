@@ -1,5 +1,8 @@
 <div class="row">
-  <div class="col-4">
+  <div class="col-lg-8 col-md-12 full-height" id="poem_quick_view">
+    <%= render 'poems/poem_quick_view' %>
+  </div>
+  <div class="col-lg-4 col-md-12 full-height" >
     <div class="form-group mt-3 mb-3" dir="rtl">
       <input id="peoms_search" type="search" placeholder="بحث" class="form-control">
     </div>
@@ -8,11 +11,6 @@
     </div>
 
   </div>
-  <div class="col-8 " id="poem_quick_view">
-    <%= render 'poems/poem_quick_view' %>
-  </div>
-
-
 </div>
 
 

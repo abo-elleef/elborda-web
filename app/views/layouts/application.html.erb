@@ -14,6 +14,7 @@
     <title>Burda <%= '| ' + Rails.env if Rails.env.development? %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -31,10 +32,10 @@
       </a>
       <div class="header-right">
         <a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.borda215096" class="text-white mr-3">
-          <%= image_tag 'play_store.svg' %>
+          <%= image_tag play_store_icon %>
         </a>
         <a target="_blank" href="https://itunes.apple.com/us/app/borda-%D8%A7%D9%84%D8%A8%D8%B1%D8%AF%D8%A9/id1454496619?mt=8" class="text-white mr-3">
-          <%= image_tag 'app_store.svg' %>
+          <%= image_tag app_store_icon %>
         </a>
         <a target="_blank" href="https://www.facebook.com/bordaelmadyh/" class="text-white mr-3 facebook" >
           <%= image_tag 'facebook.png' %>

@@ -21,10 +21,12 @@ module ApplicationHelper
   end
 
   def app_store_icon
-    mobile?  ? 'app_store.png' : 'app_store.svg'
+    'app_store.png'
+    # mobile?  ? 'app_store.png' : 'app_store.svg'
   end
 
   def play_store_icon
-    mobile?  ? 'play_store.png' : 'play_store.svg'
+    'play_store.png'
+    # mobile?  ? 'play_store.png' : 'play_store.svg'
   end
 end

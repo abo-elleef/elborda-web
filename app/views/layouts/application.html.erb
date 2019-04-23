@@ -18,6 +18,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% if dark_mode? %>
+      <%= stylesheet_link_tag  'dark_mode', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end %>
 
     <meta name="title" content="<%= sharing_title(@poem) %>" />
     <meta name="description" content="<%= sharing_desc(@poem) %>" />
@@ -39,6 +42,12 @@
         </a>
         <a target="_blank" href="https://www.facebook.com/bordaelmadyh/" class="text-white mr-3 facebook" >
           <%= image_tag 'facebook.png' %>
+        </a>
+        <%= link_to "?dark_mode=#{!dark_mode?}", class: "text-white mr-3 dark_mode" do  %>
+          <%= image_tag 'dark_mode.png' %>
+        <% end %>
+        <a  href="/?dark_mode=true" class="text-white mr-3 dark_mode" >
+
         </a>
       </div>
     </div>

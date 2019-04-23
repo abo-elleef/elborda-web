@@ -27,6 +27,6 @@ test:
 
 production:
   <<: *default
-  database: burda_production
-  username:
-  password:
+  database: burda_development
+  username: postgres
+  password: postgres

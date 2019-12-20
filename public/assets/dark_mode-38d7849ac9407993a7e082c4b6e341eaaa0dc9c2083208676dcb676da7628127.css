@@ -1,0 +1,16 @@
+/* line 2, /Users/ahmedaboelleef/workspace/Burda/app/assets/stylesheets/dark_mode.scss */
+.chapter-title, .poem-title {
+  color: white;
+  background: black;
+}
+
+/* line 6, /Users/ahmedaboelleef/workspace/Burda/app/assets/stylesheets/dark_mode.scss */
+.header, .card, .line-container {
+  background-color: black;
+  color: white;
+}
+
+/* line 10, /Users/ahmedaboelleef/workspace/Burda/app/assets/stylesheets/dark_mode.scss */
+.dark_mode {
+  background: white;
+}

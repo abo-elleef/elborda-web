@@ -42,6 +42,9 @@ body{
   width: 100px;
   margin-top: -15px;
 }
+.inline-block{
+  display: inline-block;
+}
 .carousel-control-next, .carousel-control-prev {
   top: 150px;
   height: 20px;
@@ -52,11 +55,6 @@ body{
 
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%234caf50' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
-}
-
-.full-height {
-  height: calc(100vh - 62px);
-  overflow-y: auto;
 }
 
 .chapter-title{
@@ -80,4 +78,7 @@ ul#sharing_list{
   .header-right img{
     height: 30px;
   }
+}
+#poem_list {
+  overflow-x: auto;
 }

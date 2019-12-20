@@ -33,7 +33,8 @@
       <a href="#default" class="logo text-white" style="float: right">
         <%= image_tag 'icon-white.png' %>
       </a>
-      <div class="header-right">
+
+      <div class="header-right inline-block d-none">
         <a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.borda215096" class="text-white mr-3">
           <%= image_tag play_store_icon %>
         </a>
@@ -49,6 +50,11 @@
         <a  href="/?dark_mode=true" class="text-white mr-3 dark_mode" >
 
         </a>
+      </div>
+      <div class="header-right col-8 col-md-4 inline-block">
+        <div class="form-group mb-0" dir="rtl">
+          <input id="peoms_search" type="search" placeholder="بحث" class="form-control">
+        </div>
       </div>
     </div>
   </div>

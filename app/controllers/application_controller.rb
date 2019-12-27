@@ -4,7 +4,15 @@ class ApplicationController < ActionController::Base
 	def home
 		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).all
 		@poem = params[:id].present? ? @poems.find(params[:id]) : @poems.sample
-		render 'layouts/home'
+		respond_to do |format|
+			format.html {
+				render 'layouts/home'
+			}
+			format.json {
+				hash = {poems: @poems.map { |poem| PoemIndexPresenter.new(poem).to_json}, peom_of_day: PoemShowPresenter.new(@poem).to_json}
+				render json: JSON.generate(hash), status: :ok
+			}
+		end
 	end
 
 

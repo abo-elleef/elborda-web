@@ -11,7 +11,7 @@
         gtag('config', 'UA-138297734-1');
     </script>
 
-    <title>البردة <%= '| ' + Rails.env if Rails.env.development? %> <%= '--'  + @poem.try(:name).to_s %></title>
+    <title> <%= '--'  + @poem.try(:name).to_s %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

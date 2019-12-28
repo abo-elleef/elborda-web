@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 				render 'layouts/home'
 			}
 			format.json {
-				hash = {poems: @poems.map { |poem| PoemIndexPresenter.new(poem).to_json}, peom_of_day: PoemShowPresenter.new(@poem).to_json}
+				hash = {poems: @poems.map { |poem| PoemIndexPresenter.new(poem).to_json}, poem_of_day: PoemShowPresenter.new(@poem).to_json}
 				render json: JSON.generate(hash), status: :ok
 			}
 		end

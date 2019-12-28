@@ -20,7 +20,7 @@ class PoemsController < ApplicationController
       }
       format.json {
         @poem = Poem.find(params[:id])
-        hash = { peom: PoemShowPresenter.new(@poem).to_json}
+        hash = { poem: PoemShowPresenter.new(@poem).to_json}
         render json: JSON.generate(hash), status: :ok
       }
     end

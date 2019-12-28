@@ -10,7 +10,20 @@ class PoemsController < ApplicationController
   # GET /poems/1
   # GET /poems/1.json
   def show
-    home
+    respond_to do |format|
+      format.html {
+        home
+      }
+      format.js {
+        @poem = Poem.find(params[:id])
+        render :poem_quick_view
+      }
+      format.json {
+        @poem = Poem.find(params[:id])
+        hash = { peom: PoemShowPresenter.new(@poem).to_json}
+        render json: JSON.generate(hash), status: :ok
+      }
+    end
   end
 
   # GET /poems/new

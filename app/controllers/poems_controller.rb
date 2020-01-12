@@ -26,6 +26,16 @@ class PoemsController < ApplicationController
     end
   end
 
+  def next
+    @poem = Poem.where("id > ?", params[:id]).limit(1).first
+    render :show
+  end
+
+  def previous
+    @poem = Poem.where("id < ?", params[:id]).limit(1).first
+    render :show
+  end
+
   # GET /poems/new
   def new
     @poem = Poem.new

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       get :search
     end
     member do
+      get :next
+      get :previous
       get :poem_quick_view
     end
   end

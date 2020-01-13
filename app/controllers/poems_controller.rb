@@ -43,7 +43,7 @@ class PoemsController < ApplicationController
   end
 
   def previous
-    @poem = Poem.where("id < ?", params[:id]).limit(1).first
+    @poem = Poem.where("id < ?", params[:id]).order("id DESC").limit(1).first
     respond_to do |format|
       format.html {
         home

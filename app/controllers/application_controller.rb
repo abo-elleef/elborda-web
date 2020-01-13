@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
 	def home
 		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).all
-		@poem = params[:id].present? ? @poems.find(params[:id]) : @poems.sample
+		@poem ||= params[:id].present? ? @poems.find(params[:id]) : @poems.sample
 		respond_to do |format|
 			format.html {
 				render 'layouts/home'

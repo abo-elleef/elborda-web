@@ -28,12 +28,34 @@ class PoemsController < ApplicationController
 
   def next
     @poem = Poem.where("id > ?", params[:id]).limit(1).first
-    render :show
+    respond_to do |format|
+      format.html {
+        home
+      }
+      format.js {
+        render :poem_quick_view
+      }
+      format.json {
+        hash = { poem: PoemShowPresenter.new(@poem).to_json}
+        render json: JSON.generate(hash), status: :ok
+      }
+    end
   end
 
   def previous
     @poem = Poem.where("id < ?", params[:id]).limit(1).first
-    render :show
+    respond_to do |format|
+      format.html {
+        home
+      }
+      format.js {
+        render :poem_quick_view
+      }
+      format.json {
+        hash = { poem: PoemShowPresenter.new(@poem).to_json}
+        render json: JSON.generate(hash), status: :ok
+      }
+    end
   end
 
   # GET /poems/new

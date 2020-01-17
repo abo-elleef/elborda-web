@@ -12,10 +12,14 @@
     <div class="col offset-md-2 col-md-8" id="poem_quick_view">
       <%= render 'poems/poem_quick_view' %>
     </div>
+  </div>
+  <div class="row">
     <div class="col offset-md-2 col-md-8">
       <%= link_to "السابق", previous_poem_path(id: @poem.id), class: 'btn anchor-btn mb-3 mt-3' %>
       <%= link_to "التالي", next_poem_path(id: @poem.id), class: 'btn float-right anchor-btn mb-3 mt-3' %>
     </div>
   </div>
+
+
 </div>
 

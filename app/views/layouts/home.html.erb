@@ -1,12 +1,21 @@
-<div class="row">
-  <div class="col-md-12">
-    <div id="poem_list" class="row flex-row flex-nowrap rtl">
-      <%= render 'poems/list_partail' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="poem_list" class="row flex-row flex-nowrap rtl">
+        <%= render 'poems/list_partail' %>
+      </div>
     </div>
-
   </div>
-  <div class="col offset-md-2 col-md-8" id="poem_quick_view">
-    <%= render 'poems/poem_quick_view' %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col offset-md-2 col-md-8" id="poem_quick_view">
+      <%= render 'poems/poem_quick_view' %>
+    </div>
+    <div class="col offset-md-2 col-md-8">
+      <%= link_to "السابق", previous_poem_path(id: @poem.id), class: 'btn anchor-btn mb-3 mt-3' %>
+      <%= link_to "التالي", next_poem_path(id: @poem.id), class: 'btn float-right anchor-btn mb-3 mt-3' %>
+    </div>
   </div>
 </div>
 

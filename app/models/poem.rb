@@ -3,6 +3,8 @@ class Poem < ApplicationRecord
 	has_many :chapters, dependent: :destroy
 	has_many :links, as: :linkable, dependent: :destroy
 
+	accepts_nested_attributes_for :chapters, allow_destroy: true
+
 
 	def main_link
 		links.first || chapters.includes(:links).map(&:links).flatten.compact.first

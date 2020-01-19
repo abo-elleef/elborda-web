@@ -21,7 +21,7 @@ ActiveAdmin.register Poem do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :desc, :author
+  permit_params :name, :desc, :author
   #
   # or
   #

@@ -2,6 +2,7 @@ class Line < ApplicationRecord
 	SEPARATOR = '&&'
 
 	belongs_to :chapter
+	belongs_to :poem
 
 
 	def readable_body

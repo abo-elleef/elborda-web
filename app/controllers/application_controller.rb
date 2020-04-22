@@ -16,8 +16,9 @@ class ApplicationController < ActionController::Base
 	end
 
 	def mobile
-		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).all
-		body = @poems.map do |p| MobilePresenter.new(p).present end
+		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).order(:id).all
+		body = {}
+		@poems.map do |p| body[p.id] = MobilePresenter.new(p).present end
 		render json: JSON.generate(body), status: :ok
 	end
 

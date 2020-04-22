@@ -6,8 +6,8 @@ class ChapterPresenter
 
   def to_json
     {
-        id: chapter.id,
-        name: chapter.name,
+        id: chapter.id.to_s,
+        name: chapter.name.to_s,
         lines: chapter.lines.map {|line| LinePresenter.new(line).to_json}
 
     }

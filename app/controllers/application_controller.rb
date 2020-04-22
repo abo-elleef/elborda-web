@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def mobile
+		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).all
+		body = @poems.map do |p| MobilePresenter.new(p).present end
+		render json: JSON.generate(body), status: :ok
+	end
+
 
 	def authenticate_user
     true

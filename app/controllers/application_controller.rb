@@ -15,6 +15,22 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+
+	def grid_home
+		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).all
+		params[:id] = 7
+		@poem ||= params[:id].present? ? @poems.find(params[:id]) : @poems.sample
+		respond_to do |format|
+			format.html {
+				render 'layouts/grid_home'
+			}
+			format.json {
+				hash = {poems: @poems.map { |poem| PoemIndexPresenter.new(poem).to_json}, poem_of_day: PoemShowPresenter.new(@poem).to_json}
+				render json: JSON.generate(hash), status: :ok
+			}
+		end
+	end
+
 	def mobile
 		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).order(:id).all
 		body = {}

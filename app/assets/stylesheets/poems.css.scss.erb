@@ -12,7 +12,8 @@ p, h5 {
   direction: rtl !important;
 }
 body{
-  background: url(image-path("bg.png"));
+  background: url(image-path("bg.png")) transparent;
+  background-color: #f0f0f0;
   font-family:  uthmani;
 }
 .line-container{
@@ -34,13 +35,9 @@ body{
   background-color: $primary;
 }
 
-.header img{
-  height: 40px;
-}
 .header a.logo img{
-  height: 68px;
-  width: 100px;
   margin-top: -15px;
+  margin-right: 10px;
 }
 .inline-block{
   display: inline-block;
@@ -82,7 +79,4 @@ ul#sharing_list{
   .header-right img{
     height: 30px;
   }
-}
-#poem_list {
-  overflow-x: auto;
 }

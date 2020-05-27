@@ -1,14 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @chapter.name %>
-</p>
-
-<p>
-  <strong>Poem:</strong>
-  <%= @chapter.poem_id %>
-</p>
-
-<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
-<%= link_to 'Back', chapters_path %>
+<div class="row">
+  <% links = @chapter.links.to_a %>
+  <% if links.present? %>
+    <div class="<%= links.size > 1 ? "col-md-12" : "col-md-3" %>">
+      <div class="card mt-3 mb-3">
+        <div class="card-img-top" style="text-align: center;">
+          <div class="">
+            <% links.map.with_index do |link, link_index| %>
+              <%= render "poems/media_viewer", link: link, link_index: link_index %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% @chapter.lines.map do |line| %>
+    <div class="line-container text-center col-12 col-md-6 offset-md-3 ">
+      <ul id="sharing_list" class="float-right pl-0 mb-0">
+        <li>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=<%= chapter_url(@chapter) %>&quote=<%= line.readable_body %>&url=<%= chapter_url(@chapter) %> " target="_blank">
+            <%= image_tag 'facebook.png' %>
+          </a>
+        </li>
+        <li>
+          <a href="http://twitter.com/share?text=<%= line.readable_body %>&url=<%= chapter_url(@chapter) %>&hashtags=المصطفي,البردة,مدح" target="_blank">
+            <%= image_tag 'twitter.png' %>
+          </a>
+        </li>
+      </ul>
+      <% line.body_parts.map do |part| %>
+        <%= part %> <br>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="col offset-md-3 col-md-6">
+    <%= link_to "السابق", previous_chapter_path(id: @chapter.id), class: 'btn anchor-btn mb-3 mt-3' %>
+    <%= link_to "التالي", next_chapter_path(id: @chapter.id), class: 'btn float-right anchor-btn mb-3 mt-3' %>
+  </div>
+</div>

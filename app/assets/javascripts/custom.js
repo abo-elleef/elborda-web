@@ -8,7 +8,7 @@ $(window).ready(function () {
                 data: {q: e.target.value},
                 url: "/poems/search"
             })
-        }, 1000);
+        }, 500);
 
     })
 });

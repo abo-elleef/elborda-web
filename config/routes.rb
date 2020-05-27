@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :lines
-  resources :chapters
+  resources :chapters do
+    member do
+      get :next
+      get :previous
+    end
+  end
   resources :poems do
     collection do
       get :search

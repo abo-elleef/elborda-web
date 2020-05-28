@@ -1,10 +1,12 @@
 <div class="row">
   <% links = @chapter.links.to_a %>
+  <% controls_id = "chapter_#{ @chapter.id }_controls" %>
   <% if links.present? %>
     <div class="<%= links.size > 1 ? "col-md-12" : "col-md-3" %>">
-      <div class="card mt-3 mb-3">
-        <div class="card-img-top" style="text-align: center;">
-          <div style="overflow-x: auto;">
+      <div class="mt-3 mb-3">
+        <div class="card-img-top">
+          <div id="<%= controls_id %>" class="mt-0 mb-0 p-0 carousel slide col-10 offset-1" data-ride="carousel" data-interval="100000000">
+            <div class="carousel-inner">
             <% links.map.with_index do |link, link_index| %>
               <div class="carousel-item <%= "active" if link_index.zero? %>">
                 <% if link.source == 'you_tube' %>
@@ -15,7 +17,16 @@
                 <% end %>
               </div>
             <% end %>
+            </div>
           </div>
+          <a class="carousel-control-prev" href="#<%= controls_id %>" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#<%= controls_id %>" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
     </div>

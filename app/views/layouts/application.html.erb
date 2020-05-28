@@ -35,10 +35,7 @@
         <a href="/" class="logo text-white mr-3">
           <%= image_tag 'icon-header.png' %>
         </a>
-        <% if @poem %>
-          <p class="text-white inline-block mr-3 mt-3 fs-18 "><%= @poem.name %></p>
-        <% end %>
-
+        <p class="text-white inline-block mr-3 mt-3 fs-18 "><%= @poem.try(:name) || "المدائح" %></p>
         <% if false %>
           <div class="header-right inline-block">
             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.borda215096" class="text-white mr-3">

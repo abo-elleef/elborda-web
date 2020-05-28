@@ -18,8 +18,6 @@ class ApplicationController < ActionController::Base
 
 	def grid_home
 		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).all
-		params[:id] = 7
-		@poem ||= params[:id].present? ? @poems.find(params[:id]) : @poems.sample
 		respond_to do |format|
 			format.html {
 				render 'layouts/grid_home'

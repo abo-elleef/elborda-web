@@ -1,5 +1,5 @@
 class Poem < ApplicationRecord
-
+	DEFAULT_CHAPTER_SIZE = 20
 	has_many :chapters, dependent: :destroy
 	has_many :links, as: :linkable, dependent: :destroy
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_19_081728) do
+ActiveRecord::Schema.define(version: 2020_04_19_231016) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2020_01_19_081728) do
     t.integer "chapter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "poem_id"
+    t.index ["poem_id"], name: "index_lines_on_poem_id"
   end
 
   create_table "links", force: :cascade do |t|
@@ -68,6 +70,8 @@ ActiveRecord::Schema.define(version: 2020_01_19_081728) do
     t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "chapter_size"
+    t.boolean "published", default: false
   end
 
   create_table "users", force: :cascade do |t|

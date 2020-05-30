@@ -6,7 +6,7 @@ class LinePresenter
 
   def to_json
     {
-      id: line.id,
+      id: line.id.to_s,
       body: line.body_parts
     }
   end

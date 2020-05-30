@@ -10,6 +10,18 @@ class ChaptersController < ApplicationController
   # GET /chapters/1
   # GET /chapters/1.json
   def show
+    @chapter = Chapter.find(params[:id])
+    @poem = @chapter.poem
+  end
+
+  def next
+    @chapter = Chapter.where(" id >  #{params[:id]}").first
+    redirect_to chapter_url(id: @chapter.id)
+  end
+
+  def previous
+    @chapter = Chapter.where(" id <  #{params[:id]}").last
+    redirect_to chapter_url(id: @chapter.id)
   end
 
   # GET /chapters/new

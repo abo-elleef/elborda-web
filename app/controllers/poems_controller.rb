@@ -10,9 +10,10 @@ class PoemsController < ApplicationController
   # GET /poems/1
   # GET /poems/1.json
   def show
+    @poem = Poem.find(params[:id])
+    redirect_to chapter_path(id: @poem.chapters.first.id) if  @poem.chapters.size == 1
     respond_to do |format|
       format.html {
-        home
       }
       format.js {
         @poem = Poem.find(params[:id])
@@ -27,14 +28,9 @@ class PoemsController < ApplicationController
   end
 
   def next
-    @poem = Poem.where("id > ?", params[:id]).limit(1).first
+    @poem = Poem.where("id > ?", params[:id]).first
     respond_to do |format|
-      format.html {
-        home
-      }
-      format.js {
-        render :poem_quick_view
-      }
+      format.html { redirect_to poem_url(id: @poem.id) }
       format.json {
         hash = { poem: PoemShowPresenter.new(@poem).to_json}
         render json: JSON.generate(hash), status: :ok
@@ -43,14 +39,9 @@ class PoemsController < ApplicationController
   end
 
   def previous
-    @poem = Poem.where("id < ?", params[:id]).order("id DESC").limit(1).first
+    @poem = Poem.where("id < ?", params[:id]).order("id").last
     respond_to do |format|
-      format.html {
-        home
-      }
-      format.js {
-        render :poem_quick_view
-      }
+      format.html { redirect_to poem_url(id: @poem.id) }
       format.json {
         hash = { poem: PoemShowPresenter.new(@poem).to_json}
         render json: JSON.generate(hash), status: :ok

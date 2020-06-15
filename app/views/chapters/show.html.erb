@@ -1,8 +1,9 @@
 <div class="row">
   <% links = @chapter.links.to_a %>
   <% controls_id = "chapter_#{ @chapter.id }_controls" %>
+<!--  #links.size > 1 ? "col-md-12" : "col-md-3"-->
   <% if links.present? %>
-    <div class="<%= links.size > 1 ? "col-md-12" : "col-md-3" %>">
+    <div class="<%= "col-md-12"  %>">
       <div class="mt-3 mb-3">
         <div class="card-img-top">
           <div id="<%= controls_id %>" class="mt-0 mb-0 p-0 carousel slide col-10 offset-1" data-ride="carousel" data-interval="100000000">

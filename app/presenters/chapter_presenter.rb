@@ -8,7 +8,8 @@ class ChapterPresenter
     {
         id: chapter.id.to_s,
         name: chapter.name.to_s,
-        lines: chapter.lines.map {|line| LinePresenter.new(line).to_json}
+        lines: chapter.lines.map {|line| LinePresenter.new(line).to_json},
+        links: chapter.links.map {|link| LinkPresenter.new(link).to_json}
 
     }
   end

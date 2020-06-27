@@ -32,23 +32,25 @@
       </div>
     </div>
   <% end %>
-  <% @chapter.lines.map do |line| %>
-    <div class="line-container text-center col-12 col-md-6 offset-md-3 ">
-      <ul id="sharing_list" class="float-right pl-0 mb-0">
-        <li>
+  <% @chapter.lines.map.with_index do |line, index| %>
+    <div class="col-12 col-md-6 offset-md-3 mt-3 text-center">
+      <ul id="sharing_list" class=" <%= index.zero? ? "d-block" : "d-none" %> ">
+        <li class="mr-3">
           <a href="https://www.facebook.com/sharer/sharer.php?u=<%= chapter_url(@chapter) %>&quote=<%= line.readable_body %>&url=<%= chapter_url(@chapter) %> " target="_blank">
             <%= image_tag 'facebook.png' %>
           </a>
         </li>
-        <li>
-          <a href="http://twitter.com/share?text=<%= line.readable_body %>&url=<%= chapter_url(@chapter) %>&hashtags=المصطفي,البردة,مدح" target="_blank">
+        <li class="ml-3">
+          <a href="http://twitter.com/share?text=<%= line.readable_body %> @bordaelmadyh&url=<%= chapter_url(@chapter) %>&hashtags=المصطفي,البردة,مدح" target="_blank">
             <%= image_tag 'twitter.png' %>
           </a>
         </li>
       </ul>
-      <% line.body_parts.map do |part| %>
-        <%= part %> <br>
-      <% end %>
+      <div class="line-container mt-3">
+        <% line.body_parts.map do |part| %>
+          <p class="text-center"> <%= part %> </p>
+        <% end %>
+      </div>
     </div>
   <% end %>
   <div class="col offset-md-3 col-md-6">

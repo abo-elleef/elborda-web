@@ -32,7 +32,7 @@
   <div class="header p-1">
     <div class="container-fluid">
       <div class="row flex-row rtl">
-        <a href="/" class="logo text-white mr-3">
+        <a href="/" class="logo text-white">
           <%= image_tag 'icon-header.png' %>
         </a>
         <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto "><%= @poem.try(:name) || "المدائح" %></p>
@@ -40,16 +40,16 @@
             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.leef.elborda" class="text-white mr-3">
               <%= image_tag play_store_icon %>
             </a>
-            <a target="_blank" href="https://itunes.apple.com/us/app/borda-%D8%A7%D9%84%D8%A8%D8%B1%D8%AF%D8%A9/id1454496619?mt=8" class="text-white mr-3">
-              <%= image_tag app_store_icon %>
-            </a>
             <a target="_blank" href="https://www.facebook.com/bordaelmadyh/" class="text-white mr-3 facebook" >
               <%= image_tag 'facebook.png' %>
             </a>
-            <a target="_blank" href="https://twitter.com/bordaelmadyh" class="text-white mr-3 facebook" >
-              <%= image_tag 'twitter.png' %>
-            </a>
             <% if false %>
+              <a target="_blank" href="https://itunes.apple.com/us/app/borda-%D8%A7%D9%84%D8%A8%D8%B1%D8%AF%D8%A9/id1454496619?mt=8" class="text-white mr-3">
+                <%= image_tag app_store_icon %>
+              </a>
+              <a target="_blank" href="https://twitter.com/bordaelmadyh" class="text-white mr-3 facebook" >
+                <%= image_tag 'twitter.png' %>
+              </a>
               <%= link_to "?dark_mode=#{!dark_mode?}", class: "text-white mr-3 dark_mode" do  %>
                 <%= image_tag 'dark_mode.png' %>
               <% end %>

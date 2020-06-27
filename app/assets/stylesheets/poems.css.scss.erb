@@ -20,7 +20,6 @@ body{
 	background: white;
 	color: #444;
 	padding: 8px;
-	margin-top: 16px;
 	font-size: $font-size;
 
 }
@@ -54,6 +53,7 @@ body{
 }
 .anchor-btn{
   background-color: $primary;
+  font-size: 24px;
   color: #fff;
 }
 .header-right img{
@@ -62,13 +62,22 @@ body{
 
 ul#sharing_list{
   list-style: none;
-  li img{
-    width: 25px;
+  margin-bottom: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    img{
+      width: 40px;
+    }
   }
+
 }
 
 .fs-18{
   font-size: 18px;
+}
+.logo {
+  margin-right: 1rem;
 }
 
 @media (max-width: 720px) {
@@ -76,6 +85,9 @@ ul#sharing_list{
     width: 50px;
     height: 50px;
     margin-right: 10px;
+  }
+  .logo{
+    margin-right: 0px;
   }
   .header-right img{
     height: 30px;

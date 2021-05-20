@@ -7,7 +7,7 @@ class Poem < ApplicationRecord
 
 
 	def main_link
-		links.first || chapters.includes(:links).map(&:links).flatten.compact.first
+		links.first || chapters.map(&:links).flatten.compact.first
 	end
 
 	def desc

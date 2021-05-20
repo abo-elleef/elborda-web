@@ -7,10 +7,22 @@ class Poem < ApplicationRecord
 
 
 	def main_link
-		links.first || chapters.includes(:links).map(&:links).flatten.compact.first
+		v_id = chapters.map(&:video_id).compact.first
+		if false &&  v_id.present?
+			"https://img.youtube.com/vi/#{v_id}/hqdefault.jpg"
+		else
+			# should be removed after completely move to youtube and normalize data
+			links.first || chapters.includes(:links).map(&:links).flatten.compact.first	
+		end
 	end
 
 	def desc
-		super.presence || chapters.first.lines.first(3).map(&:body).join(" && ").gsub('&&', ' ..  ')
+		content = chapters.map(&:content).compact.first
+		if content.present?
+			super.presence || content
+		else
+			super.presence || chapters.first.lines.first(3).map(&:body).join(" && ").gsub('&&', ' ..  ')	
+		end
+		
 	end
 end

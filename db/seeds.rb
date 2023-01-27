@@ -4400,7 +4400,7 @@ bordas.map do |borda|
   borda[:chapters].map do |chapter|
     chapter_record = Chapter.where({name: chapter[:name], desc: chapter[:desc], poem_id: poem.id}).first_or_create!
     chapter[:lines].map do |line|
-      Line.where(body: "#{line[:right]} #{Line::SEPARATOR} #{line[:left]}", chapter_id: chapter_record.id).first_or_create!
+      Line.where(body: "#{line[:right]} #{Line::SEPARATOR} #{line[:left]}", chapter_id: chapter_record.id, poem_id: poem.id).first_or_create!
     end
     chapter[:links].map { |link| Link.where(link.merge({linkable_id: chapter_record.id, linkable_type: 'Chapter'})).first_or_create! } if chapter[:links].present?
   end

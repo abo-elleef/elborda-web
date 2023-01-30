@@ -15,7 +15,6 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
-
 	def grid_home
 		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).all.shuffle
 		respond_to do |format|

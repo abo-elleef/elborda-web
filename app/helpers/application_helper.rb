@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
 
   def poem_link_name(poem)
     [ poem.name.presence , poem.author.presence].compact.join(' - ')

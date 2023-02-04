@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_action :authenticate_user
+	include Pagy::Backend
 
 	def home
 		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).all
@@ -16,7 +17,8 @@ class ApplicationController < ActionController::Base
 	end
 
 	def grid_home
-		@poems = Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).all.shuffle
+		@pagy, @poems = pagy(Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).order(id: :desc))
+
 		respond_to do |format|
 			format.html {
 				render 'layouts/grid_home'

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
       <div id="poem_list" class="row flex-row rtl">
@@ -22,7 +22,7 @@
                   <% end %>
                 <% end %>  
                 <%= link_to poem_path(poem.id) do %>
-                  <%= image_tag 'default-icon.png', class: "card-img-top", style: "width: auto !important" %>
+                  <%= image_tag "#{(poem.id % 10) + 1}.jpeg", class: "card-img-top", style: "width: 100% !important" %>
                 <% end %>
                 
               </div>

@@ -5,19 +5,23 @@ class PoemsController < ApplicationController
   # GET /poems/1.json
   def show
     @poem = Poem.find(params[:id])
-    redirect_to chapter_path(id: @poem.chapters.first.id) if  @poem.chapters.size == 1
-    respond_to do |format|
-      format.html {
-      }
-      format.js {
-        @poem = Poem.find(params[:id])
-        render :poem_quick_view
-      }
-      format.json {
-        @poem = Poem.find(params[:id])
-        hash = { poem: PoemShowPresenter.new(@poem).to_json}
-        render json: JSON.generate(hash), status: :ok
-      }
+    if @poem.chapters.size == 1
+      @chapter = @poem.chapters.first
+      render "chapters/show"
+    else
+      respond_to do |format|
+        format.html {
+        }
+        format.js {
+          @poem = Poem.find(params[:id])
+          render :poem_quick_view
+        }
+        format.json {
+          @poem = Poem.find(params[:id])
+          hash = { poem: PoemShowPresenter.new(@poem).to_json}
+          render json: JSON.generate(hash), status: :ok
+        }
+      end
     end
   end
 

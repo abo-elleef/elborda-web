@@ -3,7 +3,7 @@
 # .NET, PHP, Python, Node, and Go applications with deep visibility and low
 # overhead.  For more information, visit www.newrelic.com.
 #
-# Generated May 20, 2021
+# Generated February 5, 2023
 #
 # This configuration file is custom generated for NewRelic Administration
 #
@@ -12,11 +12,11 @@
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: d4f22a8a88d880a51c1f5780e96aa40c664dNRAL
+  license_key: c74390f34fc941ffbe7815e642fdb438af6cNRAL
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
-  app_name: elborda.com
+  app_name: elburda
 
   distributed_tracing:
     enabled: true
@@ -27,13 +27,30 @@ common: &default_settings
   # Logging level for log/newrelic_agent.log
   log_level: info
 
+  application_logging:
+    # If `true`, all logging-related features for the agent can be enabled or disabled
+    # independently. If `false`, all logging-related features are disabled.
+    enabled: true
+    forwarding:
+      # If `true`, the agent captures log records emitted by this application.
+      enabled: true
+      # Defines the maximum number of log records to buffer in memory at a time.
+      max_samples_stored: 10000
+    metrics:
+      # If `true`, the agent captures metrics related to logging for this application.
+      enabled: true
+    local_decorating:
+      # If `true`, the agent decorates logs with metadata to link to entities, hosts, traces, and spans.
+      # This requires a log forwarder to send your log files to New Relic.
+      # This should not be used when forwarding is enabled.
+      enabled: false
 
 # Environment-specific settings are in this section.
 # RAILS_ENV or RACK_ENV (as appropriate) is used to determine the environment.
 # If your application has other named environments, configure them here.
 development:
   <<: *default_settings
-  app_name: elborda.com (Development)
+  app_name: elburda (Development)
 
 test:
   <<: *default_settings
@@ -42,7 +59,7 @@ test:
 
 staging:
   <<: *default_settings
-  app_name: elborda.com (Staging)
+  app_name: elburda (Staging)
 
 production:
   <<: *default_settings

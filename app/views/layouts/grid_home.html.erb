@@ -1,19 +1,4 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-8 col-md-8 offset-md-2 mt-3 col-12 rtl">
-      <div class="input-group mb-2">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-              <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-            </svg>
-          </span>
-        </div>
-        <input id="peoms_search" type="search" placeholder="بحث" class="form-control">
-      </div>
-    </div>
-  </div>
+<div class="container">
   <div class="row">
     <div class="col-md-12">
       <div id="poem_list" class="row flex-row rtl">
@@ -22,18 +7,24 @@
           <div class="col-md-3  col-12">
             <div class="card mt-3 mb-3">
               <div class="card-img-top" style="text-align: center;">
-                <% if link.present? %>
-                  <% if link.source == 'you_tube' %>
-                    <iframe width="100%" height="300" scrolling="no" frameborder="no" loading="lazy" src="<%= link.link %>"></iframe>
+                <% if false %>
+                  <% if link.present? %>
+                    <% if link.source == 'you_tube' %>
+                      <iframe width="100%" height="300" scrolling="no" frameborder="no" loading="lazy" src="<%= link.link %>"></iframe>
+                    <% end %>
+                    <% if link.source == 'sound_cloud' %>
+                      <iframe width="100%" height="300" scrolling="no" frameborder="no" loading="lazy" src="<%= link.link %>&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=true&visual=true"></iframe>
+                    <% end %>
+                  <% else %>
+                    <%= link_to poem_path(poem.id) do %>
+                      <%= image_tag 'default-icon.png', class: "card-img-top", style: "width: auto !important" %>
+                    <% end %>
                   <% end %>
-                  <% if link.source == 'sound_cloud' %>
-                    <iframe width="100%" height="300" scrolling="no" frameborder="no" loading="lazy" src="<%= link.link %>&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=true&visual=true"></iframe>
-                  <% end %>
-                <% else %>
-                  <%= link_to poem_path(poem.id) do %>
-                    <%= image_tag 'default-icon.png', class: "card-img-top", style: "width: auto !important" %>
-                  <% end %>
+                <% end %>  
+                <%= link_to poem_path(poem.id) do %>
+                  <%= image_tag 'default-icon.png', class: "card-img-top", style: "width: auto !important" %>
                 <% end %>
+                
               </div>
               <div class="card-body">
                 <h5 class="card-title" dir="rtl"><%= link_to poem.name, poem_path(poem.id) %></h5>
@@ -42,15 +33,21 @@
             </div>
           </div>
         <% end %>
+        
       </div>
+    </div>
+    <div class="col-md-6 offset-md-3 col-12" style="text-align: center;">
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 </div>
+
+
 <% if false %>
   <div class="container">
     <div class="row">
       <div class="col offset-md-2 col-md-8" id="poem_quick_view">
-        <%= render 'poems/poem_quick_view' %>
+        <%= render 'poems/poem_quick_view'%>
       </div>
     </div>
     <div class="row">

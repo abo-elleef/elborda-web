@@ -5,6 +5,7 @@ class PoemsController < ApplicationController
   # GET /poems/1.json
   def show
     @poem = Poem.find(params[:id])
+    set_related_poems
     if @poem.chapters.size == 1
       @chapter = @poem.chapters.first
       render "chapters/show"
@@ -14,6 +15,7 @@ class PoemsController < ApplicationController
         }
         format.js {
           @poem = Poem.find(params[:id])
+          set_related_poems
           render :poem_quick_view
         }
         format.json {
@@ -27,6 +29,7 @@ class PoemsController < ApplicationController
 
   def next
     @poem = Poem.published.where("id > ?", params[:id]).first || Poem.published.last
+    set_related_poems
     respond_to do |format|
       format.html { 
         if @poem.chapters.size == 1
@@ -45,6 +48,7 @@ class PoemsController < ApplicationController
 
   def previous
     @poem = Poem.published.where("id < ?", params[:id]).order("id").last || Poem.published.first
+    set_related_poems
     respond_to do |format|
       format.html { 
         if @poem.chapters.size == 1

@@ -41,4 +41,8 @@ class ApplicationController < ActionController::Base
 	def authenticate_user
     true
 	end
+
+	def set_related_poems
+		@related_poems = Poem.published.where.not(id: @poem.id).order("RANDOM()").limit(4)
+	end
 end

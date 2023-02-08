@@ -5,32 +5,7 @@
         <% @poems.map do |poem| %>
           <% link = poem.main_link %>
           <div class="col-md-3  col-12">
-            <div class="card mt-3 mb-3">
-              <div class="card-img-top" style="text-align: center;">
-                <% if false %>
-                  <% if link.present? %>
-                    <% if link.source == 'you_tube' %>
-                      <iframe width="100%" height="300" scrolling="no" frameborder="no" loading="lazy" src="<%= link.link %>"></iframe>
-                    <% end %>
-                    <% if link.source == 'sound_cloud' %>
-                      <iframe width="100%" height="300" scrolling="no" frameborder="no" loading="lazy" src="<%= link.link %>&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=true&visual=true"></iframe>
-                    <% end %>
-                  <% else %>
-                    <%= link_to poem_path(poem.id) do %>
-                      <%= image_tag 'default-icon.png', class: "card-img-top", style: "width: auto !important" %>
-                    <% end %>
-                  <% end %>
-                <% end %>  
-                <%= link_to poem_path(poem.id) do %>
-                  <img src="<%= "#{(poem.id % 10) + 1}.jpeg" %>" class= "card-img-top" style= "width: 100% !important" />
-                <% end %>
-                
-              </div>
-              <div class="card-body">
-                <h5 class="card-title" dir="rtl"><%= link_to poem.name, poem_path(poem.id) %></h5>
-                <p class="card-text"> <%= truncate(poem.desc, length: 200) %></p>
-              </div>
-            </div>
+            <%= render "poems/preview", poem: poem %>
           </div>
         <% end %>
         

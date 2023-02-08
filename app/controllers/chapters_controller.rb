@@ -6,13 +6,15 @@ class ChaptersController < ApplicationController
   end
 
   def next
-    @chapter = Chapter.where(" id >  #{params[:id]}").first
-    redirect_to chapter_url(id: @chapter.id)
+    @chapter = Chapter.where(" id >  #{params[:id]}").first || Chapter.last
+    @poem = @chapter.poem
+    render :show
   end
 
   def previous
-    @chapter = Chapter.where(" id <  #{params[:id]}").last
-    redirect_to chapter_url(id: @chapter.id)
+    @chapter = Chapter.where(" id <  #{params[:id]}").last || Chapter.first
+    @poem = @chapter.poem
+    render :show
   end
 
   private

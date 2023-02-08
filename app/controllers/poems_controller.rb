@@ -26,9 +26,16 @@ class PoemsController < ApplicationController
   end
 
   def next
-    @poem = Poem.where("id > ?", params[:id]).first
+    @poem = Poem.published.where("id > ?", params[:id]).first || Poem.published.last
     respond_to do |format|
-      format.html { redirect_to poem_url(id: @poem.id) }
+      format.html { 
+        if @poem.chapters.size == 1
+          @chapter = @poem.chapters.first
+          render "chapters/show"
+        else
+          render :show
+        end
+       }
       format.json {
         hash = { poem: PoemShowPresenter.new(@poem).to_json}
         render json: JSON.generate(hash), status: :ok
@@ -37,9 +44,16 @@ class PoemsController < ApplicationController
   end
 
   def previous
-    @poem = Poem.where("id < ?", params[:id]).order("id").last
+    @poem = Poem.published.where("id < ?", params[:id]).order("id").last || Poem.published.first
     respond_to do |format|
-      format.html { redirect_to poem_url(id: @poem.id) }
+      format.html { 
+        if @poem.chapters.size == 1
+          @chapter = @poem.chapters.first
+          render "chapters/show"
+        else
+          render :show
+        end
+       }
       format.json {
         hash = { poem: PoemShowPresenter.new(@poem).to_json}
         render json: JSON.generate(hash), status: :ok

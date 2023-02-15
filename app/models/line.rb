@@ -12,4 +12,9 @@ class Line < ApplicationRecord
 	def body_parts
 		body.split(SEPARATOR)
 	end
+
+	def without_tashkeel
+		self.body = body.gsub(/[ؐ-ًؕ-ٖٓ-ٟۖ-ٰٰۭ]/, '')
+		save
+	end
 end

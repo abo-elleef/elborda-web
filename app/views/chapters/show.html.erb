@@ -39,6 +39,21 @@
       <% @chapter.lines.map.with_index do |line, index| %>
         <div class="col col-12 col-md-10 offset-md-1 mt-3 text-center">
           <div class="line-container mt-3">
+            <% if index.zero? %>
+              
+
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'e811d429cf3d24de65a55d7fe1b645eb',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/e811d429cf3d24de65a55d7fe1b645eb/invoke.js"></scr' + 'ipt>');
+</script>
+            
+            <% end %> 
             <% line.body_parts.map do |part| %>
               <p class="text-center"> <%= part %> </p>
             <% end %>
@@ -59,7 +74,8 @@
       </div>
     </div>
     <div class="col col-md-4 col-sm-12 ">
-      <% @related_poems.map do |poem| %>
+      <% @related_poems.map.with_index do |poem, index| %>
+        
         <%= render "poems/preview", poem: poem %>
       <% end %>
     </div>  

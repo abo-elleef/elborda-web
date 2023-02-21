@@ -1,0 +1,258 @@
+
+app/mailers/application_mailer.rb,67
+class ApplicationMailer < ActionMailer::BaseApplicationMailer1,0
+
+app/models/line.rb,567
+class Line < ApplicationRecordLine1,0
+	SEPARATOR = '&&'SEPARATOR2,0
+	SEPARATOR = '&&'Line::SEPARATOR2,0
+	belongs_to :chapterchapter4,0
+	belongs_to :chapterchapter=4,0
+	belongs_to :chapterbuild_chapter4,0
+	belongs_to :chaptercreate_chapter4,0
+	belongs_to :chaptercreate_chapter!4,0
+	belongs_to :poempoem5,0
+	belongs_to :poempoem=5,0
+	belongs_to :poembuild_poem5,0
+	belongs_to :poemcreate_poem5,0
+	belongs_to :poemcreate_poem!5,0
+	def readable_bodyreadable_body8,0
+	def body_partsbody_parts12,0
+	def without_tashkeelwithout_tashkeel16,0
+
+app/models/poem.rb,747
+class Poem < ApplicationRecordPoem1,0
+	DEFAULT_CHAPTER_SIZE = 20DEFAULT_CHAPTER_SIZE2,0
+	DEFAULT_CHAPTER_SIZE = 20Poem::DEFAULT_CHAPTER_SIZE2,0
+	has_many :chapters, dependent: :destroychapters3,0
+	has_many :chapters, dependent: :destroychapters=3,0
+	has_many :chapters, dependent: :destroychapter_ids3,0
+	has_many :chapters, dependent: :destroychapter_ids=3,0
+	has_many :links, as: :linkable, dependent: :destroylinks4,0
+	has_many :links, as: :linkable, dependent: :destroylinks=4,0
+	has_many :links, as: :linkable, dependent: :destroylink_ids4,0
+	has_many :links, as: :linkable, dependent: :destroylink_ids=4,0
+  scope :published, -> { where(published: true) }published5,0
+	def main_linkmain_link9,0
+	def descdesc13,0
+
+app/models/admin_user.rb,50
+class AdminUser < ApplicationRecordAdminUser1,0
+
+app/models/application_record.rb,67
+class ApplicationRecord < ActiveRecord::BaseApplicationRecord1,0
+
+app/models/link.rb,337
+class Link < ApplicationRecordLink1,0
+  belongs_to :linkable, polymorphic: truelinkable3,0
+  belongs_to :linkable, polymorphic: truelinkable=3,0
+  belongs_to :linkable, polymorphic: truebuild_linkable3,0
+  belongs_to :linkable, polymorphic: truecreate_linkable3,0
+  belongs_to :linkable, polymorphic: truecreate_linkable!3,0
+
+app/models/chapter.rb,663
+class Chapter < ApplicationRecordChapter1,0
+	belongs_to :poempoem2,0
+	belongs_to :poempoem=2,0
+	belongs_to :poembuild_poem2,0
+	belongs_to :poemcreate_poem2,0
+	belongs_to :poemcreate_poem!2,0
+	has_many :lines, dependent: :destroylines3,0
+	has_many :lines, dependent: :destroylines=3,0
+	has_many :lines, dependent: :destroyline_ids3,0
+	has_many :lines, dependent: :destroyline_ids=3,0
+	has_many :links, as: :linkable, dependent: :destroylinks4,0
+	has_many :links, as: :linkable, dependent: :destroylinks=4,0
+	has_many :links, as: :linkable, dependent: :destroylink_ids4,0
+	has_many :links, as: :linkable, dependent: :destroylink_ids=4,0
+
+app/presenters/chapter_presenter.rb,147
+class ChapterPresenterChapterPresenter1,0
+  attr_reader  :chapterchapter2,0
+  def initialize(chapter)initialize3,0
+  def to_jsonto_json7,0
+
+app/presenters/link_presenter.rb,131
+class LinkPresenterLinkPresenter1,0
+  attr_reader :linklink2,0
+  def initialize(link)initialize3,0
+  def to_jsonto_json7,0
+
+app/presenters/poem_index_presenter.rb,141
+class PoemIndexPresenterPoemIndexPresenter1,0
+  attr_reader :poempoem2,0
+  def initialize(poem)initialize3,0
+  def to_jsonto_json7,0
+
+app/presenters/mobile_presenter.rb,135
+class MobilePresenterMobilePresenter1,0
+  attr_reader :poempoem2,0
+  def initialize(poem)initialize4,0
+  def presentpresent8,0
+
+app/presenters/line_presenter.rb,131
+class LinePresenterLinePresenter1,0
+  attr_reader :lineline2,0
+  def initialize(line)initialize3,0
+  def to_jsonto_json7,0
+
+app/presenters/poem_show_presenter.rb,139
+class PoemShowPresenterPoemShowPresenter1,0
+  attr_reader :poempoem2,0
+  def initialize(poem)initialize3,0
+  def to_jsonto_json7,0
+
+app/jobs/application_job.rb,58
+class ApplicationJob < ActiveJob::BaseApplicationJob1,0
+
+app/controllers/application_controller.rb,244
+class ApplicationController < ActionController::BaseApplicationController1,0
+	def homehome5,0
+	def grid_homegrid_home19,0
+	def mobilemobile33,0
+	def authenticate_userauthenticate_user41,0
+	def set_related_poemsset_related_poems45,0
+
+app/controllers/chapters_controller.rb,184
+class ChaptersController < ApplicationControllerChaptersController1,0
+  def showshow3,0
+  def nextnext9,0
+  def previousprevious16,0
+    def chapter_paramschapter_params26,0
+
+app/controllers/lines_controller.rb,294
+class LinesController < ApplicationControllerLinesController1,0
+  def indexindex6,0
+  def showshow12,0
+  def newnew16,0
+  def editedit21,0
+  def createcreate26,0
+  def updateupdate42,0
+  def destroydestroy56,0
+    def set_lineset_line66,0
+    def line_paramsline_params71,0
+
+app/controllers/links_controller.rb,86
+class LinksController < ApplicationControllerLinksController1,0
+  def showshow3,0
+
+app/controllers/poems_controller.rb,272
+class PoemsController < ApplicationControllerPoemsController1,0
+  def showshow6,0
+  def nextnext30,0
+  def previousprevious49,0
+  def poem_quick_viewpoem_quick_view68,0
+  def searchsearch75,0
+    def set_poemset_poem81,0
+    def poem_paramspoem_params86,0
+
+app/helpers/poems_helper.rb,35
+module PoemsHelperPoemsHelper1,0
+
+app/helpers/chapters_helper.rb,41
+module ChaptersHelperChaptersHelper1,0
+
+app/helpers/lines_helper.rb,35
+module LinesHelperLinesHelper1,0
+
+app/helpers/application_helper.rb,323
+module ApplicationHelperApplicationHelper1,0
+  def poem_link_name(poem)poem_link_name5,0
+  def sharing_title poemsharing_title10,0
+  def sharing_desc poemsharing_desc14,0
+  def mobile?mobile?18,0
+  def app_store_iconapp_store_icon25,0
+  def play_store_iconplay_store_icon30,0
+  def dark_mode?dark_mode?35,0
+
+app/channels/application_cable/connection.rb,195
+module ApplicationCableApplicationCable1,0
+  class Connection < ActionCable::Connection::BaseConnection2,0
+  class Connection < ActionCable::Connection::BaseApplicationCable::Connection2,0
+
+app/channels/application_cable/channel.rb,177
+module ApplicationCableApplicationCable1,0
+  class Channel < ActionCable::Channel::BaseChannel2,0
+  class Channel < ActionCable::Channel::BaseApplicationCable::Channel2,0
+
+test/models/chapter_test.rb,60
+class ChapterTest < ActiveSupport::TestCaseChapterTest3,0
+
+test/models/poem_test.rb,54
+class PoemTest < ActiveSupport::TestCasePoemTest3,0
+
+test/models/admin_user_test.rb,64
+class AdminUserTest < ActiveSupport::TestCaseAdminUserTest3,0
+
+test/models/line_test.rb,54
+class LineTest < ActiveSupport::TestCaseLineTest3,0
+
+test/models/user_test.rb,54
+class UserTest < ActiveSupport::TestCaseUserTest3,0
+
+test/system/chapters_test.rb,64
+class ChaptersTest < ApplicationSystemTestCaseChaptersTest3,0
+
+test/system/poems_test.rb,58
+class PoemsTest < ApplicationSystemTestCasePoemsTest3,0
+
+test/system/lines_test.rb,58
+class LinesTest < ApplicationSystemTestCaseLinesTest3,0
+
+test/application_system_test_case.rb,95
+class ApplicationSystemTestCase < ActionDispatch::SystemTestCaseApplicationSystemTestCase3,0
+
+test/test_helper.rb,101
+class ActiveSupport::TestCaseTestCase5,0
+class ActiveSupport::TestCaseActiveSupport::TestCase5,0
+
+test/controllers/lines_controller_test.rb,84
+class LinesControllerTest < ActionDispatch::IntegrationTestLinesControllerTest3,0
+
+test/controllers/chapters_controller_test.rb,90
+class ChaptersControllerTest < ActionDispatch::IntegrationTestChaptersControllerTest3,0
+
+test/controllers/poems_controller_test.rb,84
+class PoemsControllerTest < ActionDispatch::IntegrationTestPoemsControllerTest3,0
+
+config/application.rb,146
+module BurdaBurda9,0
+  class Application < Rails::ApplicationApplication10,0
+  class Application < Rails::ApplicationBurda::Application10,0
+
+db/migrate/20190328211317_create_chapters.rb,95
+class CreateChapters < ActiveRecord::Migration[5.2]CreateChapters1,0
+  def changechange2,0
+
+db/migrate/20190328211217_create_poems.rb,89
+class CreatePoems < ActiveRecord::Migration[5.2]CreatePoems1,0
+  def changechange2,0
+
+db/migrate/20200419231016_add_columns_to_exist_schema.rb,113
+class AddColumnsToExistSchema < ActiveRecord::Migration[5.2]AddColumnsToExistSchema1,0
+  def changechange2,0
+
+db/migrate/20200119081726_devise_create_admin_users.rb,111
+class DeviseCreateAdminUsers < ActiveRecord::Migration[5.2]DeviseCreateAdminUsers3,0
+  def changechange4,0
+
+db/migrate/20190328211403_create_lines.rb,89
+class CreateLines < ActiveRecord::Migration[5.2]CreateLines1,0
+  def changechange2,0
+
+db/migrate/20200119081728_create_active_admin_comments.rb,140
+class CreateActiveAdminComments < ActiveRecord::Migration[5.2]CreateActiveAdminComments1,0
+  def self.upup2,0
+  def self.downdown13,0
+
+db/migrate/20210430074156_add_video_id_to_link.rb,99
+class AddVideoIdToLink < ActiveRecord::Migration[5.2]AddVideoIdToLink1,0
+  def changechange2,0
+
+db/migrate/20230130210313_add_foreign_key_constraint_to_active_storage_attachments_for_blob_id.active_storage.rb,175
+class AddForeignKeyConstraintToActiveStorageAttachmentsForBlobId < ActiveRecord::Migration[6.0]AddForeignKeyConstraintToActiveStorageAttachmentsForBlobId2,0
+  def upup3,0
+
+db/migrate/20190403225015_create_media.rb,89
+class CreateMedia < ActiveRecord::Migration[5.2]CreateMedia1,0
+  def changechange2,0

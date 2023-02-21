@@ -11,7 +11,7 @@
       gtag('config', 'G-9Y8SE5EBTT');
     </script>
 
-    <title> <%= @poem.try(:name).to_s %></title>
+    <title> <%= @poem.try(:name) || 'مدائح النبي صلي الله عليه وبارك و سلم' %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,18 +35,18 @@
     <div class="container-fluid">
       <div class="row flex-row rtl">
         <a href="/" class="logo text-white">
-          <%= image_tag 'icon-header.png' %>
+          <%= image_tag 'icon-header.png', alt: 'logo' %>
         </a>
         <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto "><%= @poem.try(:name) || "المدائح" %></p>
           <div class="header-right inline-block ml-3 mt-md-1 mt-3">
             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.leef.elborda" class="text-white mr-3">
-              <%= image_tag play_store_icon %>
+              <%= image_tag play_store_icon, alt: 'play store' %>
             </a>
             <a target="_blank" href="https://apps.apple.com/app/id1520516817" class="text-white mr-3">
-              <%= image_tag app_store_icon %>
+              <%= image_tag app_store_icon , alt: 'app store' %>
             </a>
             <a target="_blank" href="https://www.facebook.com/bordaelmadyh/" class="text-white mr-3 facebook" >
-              <%= image_tag 'facebook.png' %>
+              <%= image_tag 'facebook.png', alt: 'facebook' %>
             </a>
 <!--            https://itunes.apple.com/us/app/borda-%D8%A7%D9%84%D8%A8%D8%B1%D8%AF%D8%A9/id1454496619?mt=8-->
             <% if false %>

@@ -31,8 +31,4 @@ module ApplicationHelper
     'play_store.png'
     # mobile?  ? 'play_store.png' : 'play_store.svg'
   end
-
-  def dark_mode?
-    params[:dark_mode] == 'true'
-  end
 end

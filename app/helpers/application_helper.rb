@@ -22,6 +22,13 @@ module ApplicationHelper
     return "desktop"
   end
 
+
+  def poem_image(poem)
+    return '' if poem.blank?
+
+    "/#{(poem.id % 10) + 1}.webp"
+  end
+
   def app_store_icon
     'app_store.png'
     # mobile?  ? 'app_store.png' : 'app_store.svg'

@@ -8,10 +8,10 @@
             <%= render "poems/preview", poem: poem %>
           </div>
         <% end %>
-        
+
       </div>
     </div>
-    <div class="col-md-6 offset-md-3 col-12" style="text-align: center;">
+    <div id="pagination-container" class="col-md-6 offset-md-3 col-12" style="text-align: center;">
       <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>

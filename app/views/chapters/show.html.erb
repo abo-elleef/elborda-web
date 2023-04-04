@@ -34,16 +34,16 @@
         </div>
       <% end %>
       <div class="col col-12 col-md-10 offset-md-1 mt-3 text-center">
-        <img src="<%= "/#{(@chapter.poem_id % 10) + 1}.jpeg" %>" class= "card-img-top" style= "width: 100% !important" />
+        <img src="<%= "/#{(@chapter.poem_id % 10) + 1}.jpeg" %>" alt="main image" class= "card-img-top" style= "width: 100% !important" />
       </div>
       <% @chapter.lines.map.with_index do |line, index| %>
         <div class="col col-12 col-md-10 offset-md-1 mt-3 text-center">
           <div class="line-container mt-3">
             <% if index.zero? %>
-            
+
             <!-- ads should be displayed here-->
 
-            <% end %> 
+            <% end %>
             <% line.body_parts.map do |part| %>
               <p class="text-center"> <%= part %> </p>
             <% end %>
@@ -65,10 +65,10 @@
     </div>
     <div class="col col-md-4 col-sm-12 ">
       <% @related_poems.map.with_index do |poem, index| %>
-        
+
         <%= render "poems/preview", poem: poem %>
       <% end %>
-    </div>  
+    </div>
   </div>
 </div>
 

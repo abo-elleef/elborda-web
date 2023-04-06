@@ -26,7 +26,7 @@ module ApplicationHelper
   def poem_image(poem)
     return '' if poem.blank?
 
-    "/#{(poem.id % 10) + 1}.webp"
+    "/#{(poem.id % 12) + 1}.webp"
   end
 
   def app_store_icon

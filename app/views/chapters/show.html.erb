@@ -33,11 +33,25 @@
           </div>
         </div>
       <% end %>
-      <div class="col col-12 col-md-10 offset-md-1 mt-3 text-center">
+      <div class="line-container mt-3 mr-3 ml-3 pt-3 pb-3">
+        <h1 class="text-center"><%= @poem.name %></h1>
+      </div>
+      <div class="col col-12 mt-3 text-center">
         <img src="<%= "/#{(@chapter.poem_id % 10) + 1}.jpeg" %>" alt="main image" class= "card-img-top" style= "width: 100% !important" />
       </div>
+      <!-- Google Adsense tag: horizontal unit chapter body -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2772630944180636"
+           data-ad-slot="2005768469"
+           data-ad-format="auto"
+           data-adtest="on"
+           data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
       <% @chapter.lines.map.with_index do |line, index| %>
-        <div class="col col-12 col-md-10 offset-md-1 mt-3 text-center">
+        <div class="col col-12 mt-3 text-center">
           <div class="line-container mt-3">
             <% if index.zero? %>
 
@@ -65,7 +79,18 @@
     </div>
     <div class="col col-md-4 col-sm-12 ">
       <% @related_poems.map.with_index do |poem, index| %>
-
+        <% if index == 2 %>
+          <!-- square unit chapter body side bar -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-2772630944180636"
+               data-ad-slot="5094966234"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        <% end  %>
         <%= render "poems/preview", poem: poem %>
       <% end %>
     </div>

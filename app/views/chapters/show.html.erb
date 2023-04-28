@@ -39,25 +39,23 @@
       <div class="col col-12 mt-3 text-center">
         <img src="<%= poem_image(@poem) %>" alt="mosque image" class= "card-img-top" style= "width: 100% !important" />
       </div>
-      <!-- Google Adsense tag: horizontal unit chapter body -->
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-2772630944180636"
-           data-ad-slot="2005768469"
-           data-ad-format="auto"
-           data-adtest="on"
-           data-full-width-responsive="true"></ins>
-      <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
       <% @chapter.lines.map.with_index do |line, index| %>
         <div class="col col-12 mt-3 text-center">
+          <% if (index % 10).zero? %>
+            <!-- Google Adsense tag: horizontal unit chapter body -->
+            <ins class="adsbygoogle mt-3"
+                 style="display:block"
+                 data-ad-client="ca-pub-2772630944180636"
+                 data-ad-slot="2005768469"
+                 data-ad-format="auto"
+                 data-adtest="on"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+          <% end %>
           <div class="line-container mt-3">
-            <% if index.zero? %>
-
-            <!-- ads should be displayed here-->
-
-            <% end %>
             <% line.body_parts.map do |part| %>
               <p class="text-center"> <%= part %> </p>
             <% end %>
@@ -79,9 +77,9 @@
     </div>
     <div class="col col-md-4 col-sm-12 ">
       <% @related_poems.map.with_index do |poem, index| %>
-        <% if index == 2 %>
+        <% if index.in?([0, 2]) %>
           <!-- square unit chapter body side bar -->
-          <ins class="adsbygoogle"
+          <ins class="adsbygoogle mt-3"
                style="display:block"
                data-ad-client="ca-pub-2772630944180636"
                data-ad-slot="5094966234"

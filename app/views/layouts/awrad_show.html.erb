@@ -1,0 +1,12 @@
+<div class="container rtl">
+  <div class="row">
+    <div class="col col-12">
+      <p> <%= params[:title] %></p>
+    </div>
+    <% award_pages(params[:title]).map do |id| %>
+      <div class="col col-12 rtl" dir="rtl" style="text-align: center">
+          <img src='<%="/awrad_pages/page_#{id}.jpg"%>' alt='awrad page' style="max-width: 100%" />
+      </div>
+    <% end %>
+  </div>
+</div>

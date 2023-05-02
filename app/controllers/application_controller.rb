@@ -16,6 +16,15 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+
+	def awrad
+		render 'layouts/awrad'
+	end
+
+	def awrad_show
+		render 'layouts/awrad_show'
+	end
+
 	def grid_home
 		@pagy, @poems = pagy(Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).order(id: :desc))
 

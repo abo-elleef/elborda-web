@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       get :poem_quick_view
     end
   end
+  get 'awrad' => 'application#awrad'
+  get 'awrad/:title' => 'application#awrad_show'
   get "mobile" =>  "application#mobile"
   root to: 'application#grid_home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

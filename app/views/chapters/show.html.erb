@@ -62,7 +62,7 @@
           </div>
         </div>
       <% end %>
-      <div class="col offset-md-1 col-md-10 col-12">
+      <div class="col col-12">
         <%= link_to "السابق", previous_chapter_path(id: @chapter.id), class: 'btn anchor-btn mb-3 mt-3' %>
         <% if false %>
             <a href="https://www.facebook.com/sharer/sharer.php?u=<%= chapter_url(@chapter) %>&quote=<%= @chapter.lines.first.readable_body %>&url=<%= chapter_url(@chapter) %> " target="_blank">

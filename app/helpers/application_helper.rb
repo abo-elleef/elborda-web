@@ -15,11 +15,17 @@ module ApplicationHelper
     poem.blank? ? 'قصائد مدح المصطفي صلي الله عليه وسلم و اشهرها بردة المديح للامام محمد البصيري ' : @poem.desc
   end
 
-  def mobile?
+  def device_type
+    # debugger
     agent = request.user_agent
     return "tablet" if agent =~ /(tablet|ipad)|(android(?!.*mobile))/i
     return "mobile" if agent =~ /Mobile/
     return "desktop"
+  end
+
+
+  def mobile?
+    device_type == 'mobile'
   end
 
 

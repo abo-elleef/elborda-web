@@ -33,12 +33,15 @@
           </div>
         </div>
       <% end %>
-      <div class="line-container mt-3 mr-3 ml-3 pt-3 pb-3">
-        <h1 class="text-center"><%= @poem.name %></h1>
-      </div>
-      <div class="col col-12 mt-3 text-center">
-        <img src="<%= poem_image(@poem) %>" alt="mosque image" class= "card-img-top" style= "width: 100% !important" />
-      </div>
+      <% unless mobile? %>
+        <div class="line-container mt-3 mr-3 ml-3 pt-3 pb-3">
+          <h1 class="text-center"><%= @poem.name %></h1>
+        </div>
+
+        <div class="col col-12 mt-3 text-center">
+          <img src="<%= poem_image(@poem) %>" alt="mosque image" class= "card-img-top" style= "width: 100% !important" />
+        </div>
+      <% end %>
       <% @chapter.lines.map.with_index do |line, index| %>
         <div class="col col-12 mt-3 text-center">
           <% if (index % 10).zero? %>

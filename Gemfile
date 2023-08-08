@@ -8,7 +8,7 @@ gem 'rails', '~> 6.0'
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
-# gem 'activeadmin'
+gem 'activeadmin'
 
 # Plus integrations with:
 gem 'devise'

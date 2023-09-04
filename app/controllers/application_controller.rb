@@ -46,6 +46,10 @@ class ApplicationController < ActionController::Base
 		render json: JSON.generate(body), status: :ok
 	end
 
+	def privacy
+		render 'layouts/privacy'
+	end
+
 
 	def authenticate_user
     true

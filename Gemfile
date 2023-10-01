@@ -75,3 +75,7 @@ gem 'sitemap_generator'
 gem 'pagy', '~> 6.0' # omit patch digit
 
 
+gem 'scout_apm'
+
+
+

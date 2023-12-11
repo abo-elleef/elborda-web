@@ -13,4 +13,8 @@ class Poem < ApplicationRecord
 	def desc
 		super.presence || chapters.first.lines.first(3).map(&:body).join(" && ").gsub('&&', ' ..  ')
 	end
+
+	def sides?
+		true
+	end
 end

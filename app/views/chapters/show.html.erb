@@ -42,7 +42,7 @@
           <img src="<%= poem_image(@poem) %>" alt="mosque image" class= "card-img-top" style= "width: 100% !important" />
         </div>
       <% end %>
-      <% @chapter.lines.map.with_index do |line, index| %>
+      <% @chapter.lines.order(:id).map.with_index do |line, index| %>
         <div class="col col-12 mt-3 text-center">
           <% if (index % 7).zero? %>
             <!-- Google Adsense tag: horizontal unit chapter body -->

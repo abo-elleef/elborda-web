@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def grid_home
-		@pagy, @poems = pagy(Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).order(id: :desc))
+		@pagy, @poems = pagy(Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).order(id: :asc))
 
 		respond_to do |format|
 			format.html {

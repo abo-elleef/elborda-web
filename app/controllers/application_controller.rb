@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 		render 'layouts/awrad'
 	end
 
-	def awrad_show
+	def show
 		render 'layouts/awrad_show'
 	end
 

@@ -24,8 +24,7 @@ class ApplicationController < ActionController::Base
 				render 'layouts/awrad'
 			}
 			format.json {
-				hash = {awrad: award_content}
-				render json: JSON.generate(hash), status: :ok
+				render json: JSON.generate(award_content), status: :ok
 			}
 		end
 
@@ -43,8 +42,8 @@ class ApplicationController < ActionController::Base
 			}
 			format.json {
 				@poems = Poem.published.order(id: :asc)
-				hash = {poems: @poems.map { |poem| PoemIndexPresenter.new(poem).to_json}}
-				render json: JSON.generate(hash), status: :ok
+				poems_array = @poems.map { |poem| PoemIndexPresenter.new(poem).to_json}
+				render json: JSON.generate(poems_array), status: :ok
 			}
 		end
 	end

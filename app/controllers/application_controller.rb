@@ -26,14 +26,14 @@ class ApplicationController < ActionController::Base
 	end
 
 	def grid_home
-		@pagy, @poems = pagy(Poem.includes(:links, {chapters: [:lines, :links]}).where(published: true).order(id: :asc))
-
 		respond_to do |format|
+			@pagy, @poems = pagy(Poem.includes(:links, {chapters: [:lines, :links]}).published.order(id: :asc))
 			format.html {
 				render 'layouts/grid_home'
 			}
 			format.json {
-				hash = {poems: @poems.map { |poem| PoemIndexPresenter.new(poem).to_json}, poem_of_day: PoemShowPresenter.new(@poem).to_json}
+				@poems = Poem.published.order(id: :asc)
+				hash = {poems: @poems.map { |poem| PoemIndexPresenter.new(poem).to_json}}
 				render json: JSON.generate(hash), status: :ok
 			}
 		end

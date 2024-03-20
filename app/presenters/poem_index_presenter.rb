@@ -6,7 +6,7 @@ class PoemIndexPresenter
 
   def to_json
     {
-        id: poem.id,
+        id:   poem.id,
         name: poem.name,
         desc: poem.desc
     }

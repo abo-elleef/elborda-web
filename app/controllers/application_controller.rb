@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_action :authenticate_user
+	include ApplicationHelper
 	include Pagy::Backend
 
 	def home
@@ -18,7 +19,16 @@ class ApplicationController < ActionController::Base
 
 
 	def awrad
-		render 'layouts/awrad'
+		respond_to do |format|
+			format.html {
+				render 'layouts/awrad'
+			}
+			format.json {
+				hash = {awrad: award_content}
+				render json: JSON.generate(hash), status: :ok
+			}
+		end
+
 	end
 
 	def show

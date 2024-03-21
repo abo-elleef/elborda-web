@@ -44,7 +44,7 @@
       <% end %>
       <% @chapter.lines.order(:id).map.with_index do |line, index| %>
         <div class="col col-12 mt-3 text-center">
-          <% if (index % 7).zero? %>
+          <% if (index % 7).zero?  %>
             <!-- Google Adsense tag: horizontal unit chapter body -->
             <ins class="adsbygoogle mt-3"
                  style="display:block"
@@ -57,7 +57,7 @@
             </script>
 
           <% end %>
-          <div class="line-container green mt-3">
+          <div class="line-container green mt-3 position-relative">
             <% if @poem.sides? %>
               <p class="text-right"> <%= line.body_parts.first %> </p>
               <p class="text-left"> <%= line.body_parts.second %> </p>

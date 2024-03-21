@@ -45,7 +45,7 @@ module ApplicationHelper
   end
 
   def award_titles
-    award_content.map {|hash| hash[:title]}
+    award_content.map { |hash| hash[:name] }
   end
 
   def awrad
@@ -83,7 +83,7 @@ module ApplicationHelper
   def award_content
     [
       {
-        "title": 'مقدمة',
+        "name": 'مقدمة',
         "type": 'text',
         "pages": [1, 15],
         "textPages": [
@@ -116,7 +116,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'خاتم الصلاوات',
+        "name": 'خاتم الصلاوات',
         "desc": 'وَيُقْرَأُ بَعْدَ كُلَّ صَلَاةٍ مَفْرُوضَةٍ',
         "pages": [17, 5],
         "type": 'text',
@@ -147,7 +147,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'الأساس',
+        "name": 'الأساس',
         "desc": 'ويقرأ قبل شروق الشمس مرة. وقبل غروب الشمس مرة.',
         "pages": [22, 1],
         "type": 'text',
@@ -164,7 +164,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'الورد اللطيف',
+        "name": 'الورد اللطيف',
         "desc": 'للامام الحداد',
         "pages": [23, 13],
         "type": 'text',
@@ -214,7 +214,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'التحصين الشريف',
+        "name": 'التحصين الشريف',
         "pages": [37, 5],
         "type": 'text',
         "textPages": [
@@ -237,7 +237,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'الحزب الكبير',
+        "name": 'الحزب الكبير',
         "pages": [43, 9],
         "desc": 'لشيخ الطريق سيدي إبراهيم الدسوقي رضي الله عنه',
         "type": 'text',
@@ -265,7 +265,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'الحزب الصغير',
+        "name": 'الحزب الصغير',
         "pages": [53, 3],
         "type": 'text',
         "textPages": [
@@ -283,7 +283,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'الصلاة المحمدية',
+        "name": 'الصلاة المحمدية',
         "pages": [57, 2],
         "type": 'text',
         "textPages": [
@@ -291,7 +291,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'صلاة بن بشيش',
+        "name": 'صلاة بن بشيش',
         "pages": [59, 4],
         "desc": 'لسيدي عبدالسلام بن بشيش',
         "type": 'text',
@@ -305,7 +305,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'الحزب السيفي',
+        "name": 'الحزب السيفي',
         "pages": [63, 32],
         'type': 'text',
         "textPages": [
@@ -354,7 +354,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'الحزب المغني',
+        "name": 'الحزب المغني',
         "pages": [95, 8],
         'type': 'text',
         'desc': 'لسيدي أويس القرني',
@@ -389,7 +389,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'حزب البحر',
+        "name": 'حزب البحر',
         "pages": [103, 8],
         'desc': 'لسيدي أبى الحسن الشاذلي',
         'type': 'text',
@@ -417,7 +417,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'حزب النصر المبارك',
+        "name": 'حزب النصر المبارك',
         "pages": [111, 6],
         'desc': 'لسيدي أبي الحسن الشاذلي',
         "type": 'text',
@@ -444,7 +444,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'توسل السادة البرهامية',
+        "name": 'توسل السادة البرهامية',
         "pages": [125, 16],
         "type": 'text',
         "textPages": [
@@ -538,7 +538,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'السلسلة الصغيرة للمشايخ',
+        "name": 'السلسلة الصغيرة للمشايخ',
         "pages": [141, 2],
         "type": 'text',
         "textPages": [
@@ -557,7 +557,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'السلسلة الكبيرة للمشايخ',
+        "name": 'السلسلة الكبيرة للمشايخ',
         "pages": [143, 4],
         "type": 'text',
         'textPages': [
@@ -588,7 +588,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'الأوراد المربوطة',
+        "name": 'الأوراد المربوطة',
         "pages": [147, 1],
         "type": 'text',
         "textPages": [
@@ -601,7 +601,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'فواتح الحضرة',
+        "name": 'فواتح الحضرة',
         "pages": [149, 6],
         "type": 'text',
         "textPages": [
@@ -628,7 +628,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'ورد الامام النووي',
+        "name": 'ورد الامام النووي',
         "pages": [155, 10],
         "type": 'text',
         "textPages": [
@@ -661,7 +661,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'صلاة سيدي أحمد البدوي',
+        "name": 'صلاة سيدي أحمد البدوي',
         "pages": [165, 2],
         "type": 'text',
         "textPages": [
@@ -673,7 +673,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'صلوات و أدعية',
+        "name": 'صلوات و أدعية',
         "pages": [167, 2],
         "type": 'text',
         "textPages": [
@@ -685,7 +685,7 @@ module ApplicationHelper
         ]
       },
       {
-        "title": 'الوظيفة الزروقية',
+        "name": 'الوظيفة الزروقية',
         "type": 'text',
         "desc": 'ويقرأ بعد صلاة الصبح مرة. وبعد صلاة العصر مرة.',
         "textPages": [

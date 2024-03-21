@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
   get 'awrad' => 'application#awrad'
-  get 'awrad/:title' => 'application#show'
+  get 'awrad/:name' => 'application#show'
   get "mobile" =>  "application#mobile"
   get "privacy" =>  "application#privacy"
   root to: 'application#grid_home'

@@ -11,7 +11,7 @@
       gtag('config', 'G-9Y8SE5EBTT');
     </script>
 
-    <title> <%= @poem.try(:name) || params[:title] || 'مدائح النبي صلي الله عليه وبارك و سلم' %></title>
+    <title> <%= @poem.try(:name) || params[:name] || 'مدائح النبي صلي الله عليه وبارك و سلم' %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
         <a href="/" class="logo text-white">
           <%= image_tag 'icon-header.png', alt: 'logo' %>
         </a>
-        <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto "><%= @poem.try(:name) || params[:title] || "المدائح" %></p>
+        <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto "><%= @poem.try(:name) || params[:name] || "القصائد" %></p>
         <% if false %>
           <div class="header-right inline-block ml-3 mt-md-1 mt-3">
             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.leef.elborda" class="text-white mr-3">
@@ -53,14 +53,16 @@
     </div>
   </div>
   <% unless action_name == "show" %>
-    <ul class="nav nav-pills my-3" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <%= link_to "القصائد", root_path, class: "nav-link #{ current_page?(root_path) ? 'active' : ''}" %>
-        </li>
-        <li class="nav-item" role="presentation">
-          <%= link_to "الأوراد", awrad_path, class: "nav-link #{ current_page?(awrad_path) ? 'active' : ''}" %>
-        </li>
-    </ul>
+    <div class="container">
+      <ul class="nav nav-pills my-3" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <%= link_to "القصائد", root_path, class: "nav-link #{ current_page?(root_path) ? 'active' : ''}" %>
+          </li>
+          <li class="nav-item" role="presentation">
+            <%= link_to "الأوراد", awrad_path, class: "nav-link #{ current_page?(awrad_path) ? 'active' : ''}" %>
+          </li>
+      </ul>
+    </div>
   <% end  %>
   <div class="tab-content" id="pills-tabContent">
     <%= yield %>

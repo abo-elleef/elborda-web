@@ -6,24 +6,25 @@ class PoemsController < ApplicationController
   def show
     @poem = Poem.find(params[:id])
     set_related_poems
-    if @poem.chapters.size == 1
-      @chapter = @poem.chapters.first
-      render "chapters/show"
-    else
-      respond_to do |format|
-        format.html {
-        }
-        format.js {
-          @poem = Poem.find(params[:id])
-          set_related_poems
-          render :poem_quick_view
-        }
-        format.json {
-          @poem = Poem.find(params[:id])
-          hash = { poem: PoemShowPresenter.new(@poem).to_json}
-          render json: JSON.generate(hash), status: :ok
-        }
-      end
+    respond_to do |format|
+      format.html {
+        if @poem.chapters.size == 1
+          @chapter = @poem.chapters.first
+          render "chapters/show"
+        else
+          render :show
+        end
+      }
+      format.js {
+        @poem = Poem.find(params[:id])
+        set_related_poems
+        render :poem_quick_view
+      }
+      format.json {
+        @poem = Poem.find(params[:id])
+        hash = { poem: PoemShowPresenter.new(@poem).to_json}
+        render json: JSON.generate(hash), status: :ok
+      }
     end
   end
 
@@ -31,7 +32,7 @@ class PoemsController < ApplicationController
     @poem = Poem.published.where("id > ?", params[:id]).first || Poem.published.last
     set_related_poems
     respond_to do |format|
-      format.html { 
+      format.html {
         if @poem.chapters.size == 1
           @chapter = @poem.chapters.first
           render "chapters/show"
@@ -50,7 +51,7 @@ class PoemsController < ApplicationController
     @poem = Poem.published.where("id < ?", params[:id]).order("id").last || Poem.published.first
     set_related_poems
     respond_to do |format|
-      format.html { 
+      format.html {
         if @poem.chapters.size == 1
           @chapter = @poem.chapters.first
           render "chapters/show"

@@ -1,11 +1,10 @@
-<% werd = award_content.find {|werd| werd[:name] == params[:name]} %>
 <div class="container">
-  <p class="text-center m-3 werd-desc"><%= werd[:desc] %></p>
+  <p class="text-center m-3 werd-desc"><%= @werd[:desc] %></p>
   <div class="mt-3">
-    <% werd[:textPages].map.with_index do |line, index| %>
+    <% @werd[:textPages].map.with_index do |line, index| %>
       <div class="col col-12 line-container green werd  text-center mb-3 text-center">
         <%= simple_format line %>
-        <span class="line-index werd-index"><%= index + 1 %> / <%= werd[:textPages].size %> </span>
+        <span class="line-index werd-index"><%= index + 1 %> / <%= @werd[:textPages].size %> </span>
       </div>
     <% end %>
   </div>

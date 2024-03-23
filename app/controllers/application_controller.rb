@@ -27,11 +27,19 @@ class ApplicationController < ActionController::Base
 				render json: JSON.generate(award_content), status: :ok
 			}
 		end
-
 	end
 
 	def show
-		render 'layouts/awrad_show'
+		@werd = award_content.find {|werd| werd[:name] == params[:name]}
+		respond_to do |format|
+			format.html {
+				render 'layouts/awrad_show'
+			}
+			format.json {
+				render json: JSON.generate(@werd), status: :ok
+			}
+		end
+
 	end
 
 	def grid_home

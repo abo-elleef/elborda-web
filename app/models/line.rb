@@ -1,8 +1,9 @@
 class Line < ApplicationRecord
 	SEPARATOR = '&&'
 
-	belongs_to :chapter
-	belongs_to :poem
+	belongs_to :chapter, optional: true
+	belongs_to :poem, optional: true
+	belongs_to :linable, polymorphic: true
 
 
 	def readable_body

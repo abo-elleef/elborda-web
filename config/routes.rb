@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  namespace :admin do
+      resources :admin_users
+      resources :chapters
+      resources :lines
+      resources :links
+      resources :poems
+      resources :werds
+
+      root to: "admin_users#index"
+    end
   resources :lines
   resources :links, only: [:show]
   resources :chapters do

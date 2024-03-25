@@ -13,6 +13,7 @@ class WerdDashboard < Administrate::BaseDashboard
     desc: Field::String,
     lines: Field::HasMany,
     name: Field::String,
+    sort: Field::Number,
     published: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -27,6 +28,7 @@ class WerdDashboard < Administrate::BaseDashboard
     id
     name
     desc
+    sort
     lines
   ].freeze
 
@@ -38,6 +40,7 @@ class WerdDashboard < Administrate::BaseDashboard
     desc
     lines
     name
+    sort
     published
     created_at
     updated_at
@@ -49,6 +52,7 @@ class WerdDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     author
     desc
+    sort
     lines
     name
     published

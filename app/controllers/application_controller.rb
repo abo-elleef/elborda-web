@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
 	def awrad
 		respond_to do |format|
 			format.html {
+				@werds = Werd.all
 				render 'layouts/awrad'
 			}
 			format.json {
@@ -30,7 +31,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def show
-		@werd = award_content.find {|werd| werd[:name] == params[:name]}
+		@werd = Werd.find_by(name: params[:name])
 		respond_to do |format|
 			format.html {
 				render 'layouts/awrad_show'

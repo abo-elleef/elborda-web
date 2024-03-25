@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_25_154123) do
+ActiveRecord::Schema.define(version: 2024_03_25_223624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2024_03_25_154123) do
     t.integer "poem_id"
     t.integer "linable_id"
     t.string "linable_type"
+    t.integer "sort", default: 1
     t.index ["linable_id", "linable_type"], name: "index_lines_on_linable_id_and_linable_type"
     t.index ["poem_id"], name: "index_lines_on_poem_id"
   end
@@ -129,6 +130,7 @@ ActiveRecord::Schema.define(version: 2024_03_25_154123) do
     t.boolean "published", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "sort", default: 1
   end
 
 end

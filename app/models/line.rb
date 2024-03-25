@@ -1,4 +1,5 @@
 class Line < ApplicationRecord
+	default_scope { order(:sort) }
 	SEPARATOR = '&&'
 
 	belongs_to :chapter, optional: true

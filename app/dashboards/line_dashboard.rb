@@ -9,11 +9,12 @@ class LineDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    body: Field::String,
+    body: Field::Text,
     chapter: Field::BelongsTo,
     poem: Field::BelongsTo,
     linable_id: Field::Number,
     linable_type: Field::String,
+    sort: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -28,6 +29,7 @@ class LineDashboard < Administrate::BaseDashboard
     body
     chapter
     poem
+    sort
     linable_id
     linable_type
   ].freeze
@@ -37,6 +39,7 @@ class LineDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     body
+    sort
     chapter
     poem
     linable_id
@@ -50,6 +53,7 @@ class LineDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     body
+    sort
     chapter
     poem
     linable_id

@@ -19,13 +19,14 @@ class ApplicationController < ActionController::Base
 
 
 	def awrad
+		@werds = Werd.all
 		respond_to do |format|
 			format.html {
-				@werds = Werd.all
 				render 'layouts/awrad'
 			}
 			format.json {
-				render json: JSON.generate(award_content), status: :ok
+				werds_json = @werds.map  { |werd| WerdPresenter.new(werd).to_json }
+				render json: werds_json , status: :ok
 			}
 		end
 	end
@@ -37,7 +38,7 @@ class ApplicationController < ActionController::Base
 				render 'layouts/awrad_show'
 			}
 			format.json {
-				render json: JSON.generate(@werd), status: :ok
+				render json: WerdPresenter.new(@werd).to_json, status: :ok
 			}
 		end
 

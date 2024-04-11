@@ -8,7 +8,8 @@ class PoemIndexPresenter
     {
         id:   poem.id,
         name: poem.name,
-        desc: poem.desc
+        desc: poem.desc,
+        chapters: poem.chapters.map{|chapter| ChapterPresenter.new(chapter).to_json}
     }
   end
 end

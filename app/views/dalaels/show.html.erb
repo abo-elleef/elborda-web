@@ -1,0 +1,12 @@
+<div class="container">
+  <p class="text-center m-3 werd-desc"><%= @daleal[:desc] %></p>
+  <div class="mt-3">
+    <% @daleal.lines.map.with_index do |line, index| %>
+      <div class="col col-12 line-container green werd  text-center mb-3 text-center">
+        <%= simple_format line.body %>
+        <span class="line-index werd-index"><%= index + 1 %> / <%= @daleal.lines.size %> </span>
+      </div>
+    <% end %>
+  </div>
+
+</div>

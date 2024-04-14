@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :links
       resources :poems
       resources :werds
+      resources :dalaels
 
       root to: "admin_users#index"
     end
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
       get :previous
     end
   end
+  resources :dalaels, index: [:show, :index]
   resources :poems do
     collection do
       get :search

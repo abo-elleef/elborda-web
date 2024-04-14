@@ -1,0 +1,9 @@
+<div class="container rtl">
+  <div class="row pl-3 pr-3 pb-3">
+    <% @daleals.map do |daleal| %>
+      <div class="col col-md-3 offset-md-1 col-12 line-container mt-3 pt-3 pb-3">
+        <h1 class="text-center"> <%= link_to daleal.name, dalael_path(id: daleal.id)  %> </h1>
+      </div>
+    <% end %>
+  </div>
+</div>

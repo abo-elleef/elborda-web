@@ -2,8 +2,16 @@ class DalaelsController < ApplicationController
   before_action :set_dalael, only: [:show, :edit, :update, :destroy]
   Header = 'دلائل الخيرات'
   def index
-    @daleals = Dalael.published.all
-    @header = Header
+    @daleals = Dalael.preload(:lines).published.all
+    respond_to do |format|
+      format.html do
+        @header = Header
+      end
+      format.json do
+        dalaels_json = @daleals.map { |dalael| DalaelPresenter.new(dalael).to_json }
+        render json: dalaels_json, status: :ok
+      end
+    end
   end
 
   def show

@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     @werds = Werd.all
     respond_to do |format|
       format.html do
+        @header = 'أوراد البرهامية'
         render 'layouts/awrad'
       end
       format.json do
@@ -35,6 +36,7 @@ class ApplicationController < ActionController::Base
     @werd = Werd.find_by(name: params[:name])
     respond_to do |format|
       format.html do
+        @header = 'أوراد البرهامية' + ": " + @werd.name
         render 'layouts/awrad_show'
       end
       format.json do

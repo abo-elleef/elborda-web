@@ -31,7 +31,7 @@
         <a href="/" class="logo text-white">
           <%= image_tag 'icon-header.png', alt: 'logo' %>
         </a>
-        <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto "><%= @poem.try(:name) || params[:name] || "القصائد" %></p>
+        <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto "><%= @header.presence || @poem.try(:name) || params[:name] || "القصائد" %></p>
         <% if false %>
           <div class="header-right inline-block ml-3 mt-md-1 mt-3">
             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.leef.elborda" class="text-white mr-3">
@@ -52,21 +52,20 @@
       </div>
     </div>
   </div>
-  <% unless action_name == "show" %>
-    <div class="container">
-      <ul class="nav nav-pills my-3" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <%= link_to "القصائد", root_path, class: "nav-link #{ current_page?(root_path) ? 'active' : ''}" %>
-          </li>
-          <li class="nav-item" role="presentation">
-            <%= link_to "الأوراد", awrad_path, class: "nav-link #{ current_page?(awrad_path) ? 'active' : ''}" %>
-          </li>
-<!--          <li class="nav-item" role="presentation">-->
-            <%#= link_to "دلائل الخيرات", dalaels_path, class: "nav-link #{ current_page?(dalaels_path) ? 'active' : ''}" %>
-<!--          </li>-->
-      </ul>
-    </div>
-  <% end  %>
+
+  <div class="container">
+    <ul class="nav nav-pills my-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <%= link_to "القصائد", root_path, class: "nav-link #{ current_page?(root_path) || ['poems', 'chapters'].include?(controller_name) ? 'active' : ''}" %>
+        </li>
+        <li class="nav-item" role="presentation">
+          <%= link_to "أوراد البرهامية", awrad_path, class: "nav-link #{ ["awrad"].include?(action_name) || (action_name == 'show' && controller_name == 'application') ? 'active' : ''}" %>
+        </li>
+        <li class="nav-item" role="presentation">
+          <%= link_to "دلائل الخيرات", dalaels_path, class: "nav-link #{ ["dalaels"].include?(controller_name) ? 'active' : ''}" %>
+        </li>
+    </ul>
+  </div>
   <div class="tab-content" id="pills-tabContent">
     <%= yield %>
   </div>

@@ -12,7 +12,7 @@ class Line < ApplicationRecord
 	end
 
 	def body_parts
-		body.split(SEPARATOR)
+		body.split(SEPARATOR).map { |part| part.strip }
 	end
 
 	def without_tashkeel

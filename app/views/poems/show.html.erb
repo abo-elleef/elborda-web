@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row rtl" id="poem_quick_view">
-    <% @poem.chapters.map do |chapter| %>
+    <% @poem.chapters.order(sort: :asc, id: :asc).map do |chapter| %>
       <% links = chapter.links.to_a %>
       <div class="<%= "col-md-3" %>">
         <div class="card mt-3 mb-3">

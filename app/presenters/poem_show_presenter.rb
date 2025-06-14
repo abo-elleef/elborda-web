@@ -9,7 +9,7 @@ class PoemShowPresenter
         id: poem.id,
         name: poem.name,
         desc: poem.desc,
-        chapters: poem.chapters.map{|chapter| ChapterPresenter.new(chapter).to_json}
+        chapters: poem.chapters.order(id: :asc).map{|chapter| ChapterPresenter.new(chapter).to_json}
     }
   end
 end

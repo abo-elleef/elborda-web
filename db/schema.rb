@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_24_224120) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_14_231151) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pg_stat_statements"
@@ -90,6 +90,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_24_224120) do
     t.datetime "updated_at", precision: nil, null: false
     t.integer "chapter_size"
     t.boolean "published", default: false
+  end
+
+  create_table "salats", force: :cascade do |t|
+    t.string "name"
+    t.text "desc"
+    t.boolean "published", default: false
+    t.integer "sort", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "werds", force: :cascade do |t|

@@ -16,7 +16,7 @@ class PoemDashboard < Administrate::BaseDashboard
     links: Field::HasMany,
     name: Field::String,
     published: Field::Boolean,
-    slug: Field::String,
+    # slug: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -44,7 +44,6 @@ class PoemDashboard < Administrate::BaseDashboard
     links
     name
     published
-    slug
     created_at
     updated_at
   ].freeze
@@ -60,7 +59,6 @@ class PoemDashboard < Administrate::BaseDashboard
     links
     name
     published
-    slug
   ].freeze
 
   # COLLECTION_FILTERS

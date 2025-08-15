@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
   end
   resources :dalaels, index: [:show, :index]
+  resources :salats, index: [:show, :index]
   resources :poems do
     collection do
       get :search

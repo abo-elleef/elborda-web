@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :poems
       resources :werds
       resources :dalaels
+      resources :salats
 
       root to: "admin_users#index"
     end

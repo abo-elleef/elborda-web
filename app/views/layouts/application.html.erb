@@ -26,17 +26,26 @@
 
   <body>
   <div class="header p-1">
-    <div class="container-fluid">
-      <div class="row row-cols-auto rtl">
+    <div class="d-flex">
+      <div class="flex-shrink-0">
+        <!-- First column - won't shrink -->
         <a href="/" class="logo text-white">
           <%= image_tag 'icon-header.png', alt: 'logo' %>
         </a>
-        <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto "><%= @header.presence || @poem.try(:name) || params[:name] || "القصائد" %></p>
-        <% if false %>
-          <div class="header-right inline-block ml-3 mt-md-1 mt-3">
-            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.leef.elborda" class="text-white mr-3">
-              <%= image_tag play_store_icon, alt: 'play store' %>
-            </a>
+      </div>
+      
+      <div class="flex-grow-1 content">
+        <!-- Middle column - grows to fill space -->
+        <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto px-3 "><%= @header.presence || @poem.try(:name) || params[:name] || "القصائد" %></p>
+      </div>
+      
+      <div class="flex-shrink-0 d-flex align-items-center">
+        <!-- Third column - won't shrink -->
+        <div class="content header-right inline-block ml-3 ">
+          <a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.borda215096" class="text-white mr-3">
+            <%= image_tag play_store_icon, alt: 'play store' %>
+          </a>
+          <% if false %>
             <a target="_blank" href="https://www.facebook.com/bordaelmadyh/" class="text-white mr-3 facebook" >
               <%= image_tag 'facebook.png', alt: 'facebook' %>
             </a>
@@ -47,8 +56,8 @@
             <a target="_blank" href="https://apps.apple.com/app/id1520516817" class="text-white mr-3">
               <%= image_tag app_store_icon , alt: 'app store' %>
             </a>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

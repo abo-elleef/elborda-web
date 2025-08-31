@@ -43,7 +43,23 @@
         </a>
         <%= link_to "التالي", next_chapter_path(id: @chapter.id), class: 'btn anchor-btn mb-3 mt-3' %>
       </div>
-      <% @chapter.lines.order(:id).map.with_index do |line, index| %>
+
+      <% @chapter.poem.prefix_lines.map.with_index do |line, index| %>
+        <div class="col col-12 mb-3 text-center">
+          <div class="line-container mt-3 position-relative">
+            <% if @poem.sides? %>
+              <p class="text-right werd-desc"> <%= line.body_parts.first %> </p>
+              <p class="text-left werd-desc"> <%= line.body_parts.second %> </p>
+            <% else %>
+              <% line.body_parts.map do |part| %>
+                <p class="text-center werd-desc"> <%= part %> </p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <% @chapter.lines.map.with_index do |line, index| %>
         <div class="col col-12 mb-3 text-center">
           <div class="line-container green mt-3 position-relative">
             <% if @poem.sides? %>

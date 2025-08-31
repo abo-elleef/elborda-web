@@ -14,10 +14,6 @@
         <% end %>
       <% end %>
     <% end %>  
-    <%= link_to poem_path(poem.id) do %>
-      <img src="<%= poem_image(poem) %>" alt="mosque image" class= "card-img-top" style= "width: 100% !important" />
-    <% end %>
-    
   </div>
   <div class="card-body">
     <h5 class="card-title" dir="rtl"><%= link_to poem.name, poem_path(poem.id) %></h5>

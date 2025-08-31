@@ -1,6 +1,7 @@
 class Poem < ApplicationRecord
 	DEFAULT_CHAPTER_SIZE = 20
 	has_many :chapters, dependent: :destroy
+	has_many :prefix_lines, dependent: :destroy
 	has_many :links, as: :linkable, dependent: :destroy
   scope :published, -> { where(published: true) }
 	accepts_nested_attributes_for :chapters, allow_destroy: true

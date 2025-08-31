@@ -16,7 +16,7 @@
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2772630944180636"
      crossorigin="anonymous"></script>
 
-    <title> <%= @poem.try(:name) || params[:name] || 'مدائح النبي صلي الله عليه وبارك و سلم' %></title>
+    <title> <%= @poem.try(:name) || 'مدائح النبي صلي الله عليه وبارك و سلم' %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

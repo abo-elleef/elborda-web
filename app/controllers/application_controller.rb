@@ -77,6 +77,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_related_poems
-    @related_poems = Poem.published.where.not(id: @poem.id).order("RANDOM()").limit(4)
+    @related_poems = Poem.published.where.not(id: @poem.id).order("RANDOM()").limit(10)
   end
 end

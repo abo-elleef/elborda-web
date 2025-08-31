@@ -3,6 +3,7 @@ Rails.application.routes.draw do
       resources :admin_users
       resources :chapters
       resources :lines
+      resources :prefix_lines
       resources :links
       resources :poems
       resources :werds

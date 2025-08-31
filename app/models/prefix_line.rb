@@ -1,11 +1,7 @@
-class Line < ApplicationRecord
-	default_scope { order(:sort, :id) }
+class PrefixLine < ApplicationRecord
+  default_scope { order(:sort, :id) }
 	SEPARATOR = '&&'
-
-	belongs_to :chapter, optional: true
 	belongs_to :poem, optional: true
-	belongs_to :linable, polymorphic: true
-
 
 	def readable_body
 		body_parts.join(' .. ')

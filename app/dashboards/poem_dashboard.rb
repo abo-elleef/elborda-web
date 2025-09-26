@@ -15,6 +15,10 @@ class PoemDashboard < Administrate::BaseDashboard
     desc: Field::Text,
     links: Field::HasMany,
     name: Field::String,
+    name_en: Field::String,
+    name_fr: Field::String,
+    desc_en: Field::Text,
+    desc_fr: Field::Text,
     published: Field::Boolean,
     # slug: Field::String,
     created_at: Field::DateTime,
@@ -28,9 +32,10 @@ class PoemDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
+    name
+    name_en
+    name_fr
     author
-    chapter_size
-    chapters
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -38,9 +43,14 @@ class PoemDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     author
+    name
+    name_en
+    name_fr
     chapter_size
     chapters
     desc
+    desc_en
+    desc_fr
     links
     name
     published
@@ -53,11 +63,15 @@ class PoemDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     author
-    chapter_size
     chapters
     desc
     links
     name
+    name_en
+    name_fr
+    desc
+    desc_en
+    desc_fr
     published
   ].freeze
 

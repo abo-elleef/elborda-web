@@ -16,7 +16,7 @@
     <% end %>  
   </div>
   <div class="card-body">
-    <h5 class="card-title" dir="rtl"><%= link_to poem.name, poem_path(poem.id) %></h5>
+    <h5 class="card-title" dir="rtl"><%= link_to poem.name(locale: I18n.locale), poem_path(poem.id) %></h5>
     <p class="card-text"> <%= truncate(poem.desc, length: 200) %></p>
   </div>
 </div>

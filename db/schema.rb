@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_31_193433) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_26_063757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pg_stat_statements"
@@ -49,6 +49,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_31_193433) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "video_id"
     t.text "content"
+    t.string "name_en"
+    t.string "name_fr"
+    t.text "desc_en"
+    t.text "desc_fr"
   end
 
   create_table "dalaels", force: :cascade do |t|
@@ -58,6 +62,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_31_193433) do
     t.integer "sort", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_en"
+    t.string "name_fr"
+    t.text "desc_en"
+    t.text "desc_fr"
   end
 
   create_table "lines", force: :cascade do |t|
@@ -90,6 +98,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_31_193433) do
     t.datetime "updated_at", precision: nil, null: false
     t.integer "chapter_size"
     t.boolean "published", default: false
+    t.string "name_en"
+    t.string "name_fr"
+    t.text "desc_en"
+    t.text "desc_fr"
   end
 
   create_table "prefix_lines", force: :cascade do |t|
@@ -108,6 +120,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_31_193433) do
     t.integer "sort", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_en"
+    t.string "name_fr"
+    t.text "desc_en"
+    t.text "desc_fr"
   end
 
   create_table "werds", force: :cascade do |t|
@@ -118,5 +134,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_31_193433) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sort", default: 1
+    t.string "name_en"
+    t.string "name_fr"
+    t.text "desc_en"
+    t.text "desc_fr"
   end
 end

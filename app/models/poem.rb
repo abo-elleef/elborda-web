@@ -1,4 +1,5 @@
 class Poem < ApplicationRecord
+	include AttributeTranslations
 	DEFAULT_CHAPTER_SIZE = 20
 	has_many :chapters, dependent: :destroy
 	has_many :prefix_lines, dependent: :destroy

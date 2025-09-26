@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user
+  before_action :authenticate_user, :set_locale
   include ApplicationHelper
+  
   include Pagy::Backend
 
   def home
@@ -16,7 +17,6 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-
 
   def awrad
     @werds = Werd.all
@@ -78,5 +78,16 @@ class ApplicationController < ActionController::Base
 
   def set_related_poems
     @related_poems = Poem.published.where.not(id: @poem.id).order("RANDOM()").limit(10)
+  end
+
+  private
+
+  def set_locale
+    I18n.locale = params[:locale] || cookies[:locale] || extract_locale_from_accept_language_header || I18n.default_locale
+    cookies[:locale] = I18n.locale
+  end
+
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first if request.env['HTTP_ACCEPT_LANGUAGE']
   end
 end

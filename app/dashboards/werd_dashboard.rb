@@ -10,9 +10,13 @@ class WerdDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     author: Field::String,
-    desc: Field::String,
     lines: Field::HasMany,
     name: Field::String,
+    name_en: Field::String,
+    name_fr: Field::String,
+    desc: Field::String,
+    desc_en: Field::String,
+    desc_fr: Field::String,
     sort: Field::Number,
     published: Field::Boolean,
     created_at: Field::DateTime,
@@ -27,7 +31,11 @@ class WerdDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
+    name_en
+    name_fr
     desc
+    desc_en
+    desc_fr
     sort
     lines
   ].freeze
@@ -37,9 +45,13 @@ class WerdDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     author
-    desc
-    lines
     name
+    name_en
+    name_fr
+    desc
+    desc_en
+    desc_fr
+    lines
     sort
     published
     created_at
@@ -51,10 +63,14 @@ class WerdDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     author
+    name
+    name_en
+    name_fr
     desc
+    desc_en
+    desc_fr
     sort
     lines
-    name
     published
   ].freeze
 

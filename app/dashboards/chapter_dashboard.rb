@@ -14,6 +14,11 @@ class ChapterDashboard < Administrate::BaseDashboard
     lines: Field::HasMany,
     links: Field::HasMany,
     name: Field::String,
+    name_en: Field::String,
+    name_fr: Field::String,
+    desc: Field::Text,
+    desc_en: Field::Text,
+    desc_fr: Field::Text,
     poem: Field::BelongsTo,
     video_id: Field::String,
     created_at: Field::DateTime,
@@ -28,7 +33,12 @@ class ChapterDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     content
+    name
+    name_en
+    name_fr
     desc
+    desc_en
+    desc_fr
     lines
   ].freeze
 
@@ -37,10 +47,14 @@ class ChapterDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     content
+    name
+    name_en
+    name_fr
     desc
+    desc_en
+    desc_fr
     lines
     links
-    name
     poem
     video_id
     created_at
@@ -52,11 +66,15 @@ class ChapterDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     content
-    desc
-    lines
-    links
     name
+    name_en
+    name_fr
+    desc
+    desc_en
+    desc_fr
     poem
+    links
+    lines
     video_id
   ].freeze
 

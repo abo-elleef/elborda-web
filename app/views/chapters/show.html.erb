@@ -1,4 +1,4 @@
-<div class="container rtl">
+<div class="container">
   <div class="row">
     <div class="col col-md-8 col-12">
       <% if @chapter.links.present? %>
@@ -9,14 +9,14 @@
         </div>
       <% end %>
       <div class="col col-12 footer-links">
-        <%= link_to "السابق", previous_chapter_path(id: @chapter.id), class: 'btn anchor-btn mb-3 mt-3' %>
+        <%= link_to t('general.previous'), previous_chapter_path(id: @chapter.id), class: 'btn anchor-btn mb-3 mt-3' %>
         <a href="https://www.facebook.com/sharer/sharer.php?u=<%= chapter_url(@chapter) %>&quote=<%= @chapter.lines.first.readable_body %>&url=<%= chapter_url(@chapter) %> " target="_blank">
           <%= image_tag 'facebook.png', height: '50px' %>
         </a>
         <a href="http://twitter.com/share?text=<%= @chapter.lines.first.readable_body %> @bordaelmadyh&url=<%= chapter_url(@chapter) %>&hashtags=المصطفي,البردة,مدح" target="_blank">
           <%= image_tag 'twitter.png', height: '50px' %>
         </a>
-        <%= link_to "التالي", next_chapter_path(id: @chapter.id), class: 'btn anchor-btn mb-3 mt-3' %>
+        <%= link_to t('general.next'), next_chapter_path(id: @chapter.id), class: 'btn anchor-btn mb-3 mt-3' %>
       </div>
 
       <% @chapter.poem.prefix_lines.map.with_index do |line, index| %>

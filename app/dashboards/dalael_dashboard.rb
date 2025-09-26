@@ -9,9 +9,13 @@ class DalaelDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    desc: Field::String,
     lines: Field::HasMany,
     name: Field::String,
+    name_en: Field::String,
+    name_fr: Field::String,
+    desc: Field::String,
+    desc_en: Field::String,
+    desc_fr: Field::String,
     sort: Field::Number,
     published: Field::Boolean,
     created_at: Field::DateTime,
@@ -26,7 +30,11 @@ class DalaelDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
+    name_en
+    name_fr
     desc
+    desc_en
+    desc_fr
     sort
     lines
   ].freeze
@@ -35,9 +43,13 @@ class DalaelDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    desc
-    lines
     name
+    name_en
+    name_fr
+    desc
+    desc_en
+    desc_fr
+    lines
     sort
     published
     created_at
@@ -48,10 +60,14 @@ class DalaelDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    name
+    name_en
+    name_fr
     desc
+    desc_en
+    desc_fr
     sort
     lines
-    name
     published
   ].freeze
 

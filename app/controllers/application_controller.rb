@@ -83,7 +83,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    I18n.locale = params[:locale] || cookies[:locale] || extract_locale_from_accept_language_header || I18n.default_locale
+    I18n.locale = params[:locale] || cookies[:locale] || I18n.default_locale
     cookies[:locale] = I18n.locale
   end
 

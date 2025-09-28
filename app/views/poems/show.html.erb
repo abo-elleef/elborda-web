@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row" id="poem_quick_view">
     <% @poem.chapters.order(id: :asc).map do |chapter| %>
       <% links = chapter.links.to_a %>

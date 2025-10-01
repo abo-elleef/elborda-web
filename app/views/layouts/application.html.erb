@@ -16,7 +16,9 @@
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2772630944180636"
      crossorigin="anonymous"></script>
 
-    <title> <%= @poem.try(:name) || 'مدائح النبي صلي الله عليه وبارك و سلم' %></title>
+    <title> 
+      <%= @header.presence || "#{@poem&.name(locale: I18n.locale)} - #{@chapter&.name(locale: I18n.locale)}" || params[:name] || "القصائد" %>
+      </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +32,7 @@
   </head>
 
   <body>
-  <div class="header p-1">
+  <div class="header p-1" dir="<%= I18n.locale == :ar ? 'rtl' : 'ltr' %>">
     <div class="d-flex">
       <div class="flex-shrink-0">
         <!-- First column - won't shrink -->
@@ -41,7 +43,7 @@
       
       <div class="flex-grow-1 content">
         <!-- Middle column - grows to fill space -->
-        <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto px-3 "><%= @header.presence || @poem.try(:name) || params[:name] || "القصائد" %></p>
+        <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto px-3 "><%= @header.presence || "#{@poem&.name(locale: I18n.locale)} - #{@chapter&.name(locale: I18n.locale)}" || params[:name] || "القصائد" %></p>
       </div>
       
       <div class="flex-shrink-0 d-flex align-items-center">
@@ -78,8 +80,8 @@
     </div>
   </div>
 
-  <div class="container">
-    <ul class="nav nav-pills my-3" id="pills-tab" role="tablist">
+  <div class="container" >
+    <ul class="nav nav-pills my-3" id="pills-tab" role="tablist" dir="<%= I18n.locale == :ar ? 'rtl' : 'ltr' %>">
         <li class="nav-item" role="presentation">
           <%= link_to I18n.t('navbar.poems'), root_path, class: "nav-link #{ current_page?(root_path) || ['poems', 'chapters'].include?(controller_name) ? 'active' : ''}" %>
         </li>
@@ -94,7 +96,7 @@
         </li>
     </ul>
   </div>
-  <div class="tab-content" id="pills-tabContent">
+  <div class="tab-content" id="pills-tabContent" dir="<%= I18n.locale == :ar ? 'rtl' : 'ltr' %>">
     <%= yield %>
   </div>
   </body>

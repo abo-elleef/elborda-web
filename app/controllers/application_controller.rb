@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     @poem ||= params[:id].present? ? @poems.find(params[:id]) : @poems.sample
     respond_to do |format|
       format.html do
+        @header = 'القصائد'
         render 'layouts/home'
       end
       format.json do
@@ -50,6 +51,7 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       @pagy, @poems = pagy(Poem.includes(:links, {chapters: [:lines, :links]}).published.order(id: :asc))
       format.html do
+        @header = 'قصائد مدح المصطفى'
         render 'layouts/grid_home'
       end
       format.json do
@@ -87,7 +89,7 @@ class ApplicationController < ActionController::Base
     cookies[:locale] = I18n.locale
   end
 
-  def extract_locale_from_accept_language_header
-    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first if request.env['HTTP_ACCEPT_LANGUAGE']
-  end
+  # def extract_locale_from_accept_language_header
+  #   request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first if request.env['HTTP_ACCEPT_LANGUAGE']
+  # end
 end

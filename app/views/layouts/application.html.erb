@@ -17,7 +17,7 @@
      crossorigin="anonymous"></script>
 
     <title> 
-      <%= @header.presence || "#{@poem&.name(locale: I18n.locale)} - #{@chapter&.name(locale: I18n.locale)}" || params[:name] || "القصائد" %>
+      <%= sharing_title %>
       </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -26,8 +26,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: true%>
 
-    <meta name="title" content="<%= sharing_title(@poem) %>" />
-    <meta name="description" content="<%= sharing_desc(@poem) %>" />
+    <meta name="title" content="<%= sharing_title %>" />
+    <meta name="description" content="<%= sharing_desc %>" />
+    <meta property="og:title" content="<%= sharing_title %>" />
+    <meta property="og:description" content="<%= sharing_desc %>" />
+
     <link rel="image_src" href="<%= poem_image(@poem) %>" />
   </head>
 
@@ -43,7 +46,7 @@
       
       <div class="flex-grow-1 content">
         <!-- Middle column - grows to fill space -->
-        <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto px-3 "><%= @header.presence || "#{@poem&.name(locale: I18n.locale)} - #{@chapter&.name(locale: I18n.locale)}" || params[:name] || "القصائد" %></p>
+        <p class="text-white inline-block mr-3 mt-3 fs-18 ml-auto px-3 "><%= sharing_title %></p>
       </div>
       
       <div class="flex-shrink-0 d-flex align-items-center">

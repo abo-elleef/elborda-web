@@ -12,7 +12,7 @@ class Poem < ApplicationRecord
 		links.first || chapters.map(&:links).flatten.compact.first
 	end
 
-	def desc
+	def desc(locale: I18n.locale)
 		super.presence || chapters.first.lines.first(3).map(&:body).join(" && ").gsub('&&', ' ..  ')
 	end
 

@@ -7,12 +7,16 @@ module ApplicationHelper
     [poem.name.presence, poem.author.presence].compact.join(' - ')
   end
 
-  def sharing_title(poem)
-    poem.blank? ? 'البردة و المدائح ' : poem_link_name(poem)
+  def sharing_title
+    @header.presence || chapter_sharing_title || params[:name] || "القصائد"
   end
 
-  def sharing_desc(poem)
-    poem.blank? ? 'قصائد مدح المصطفي صلي الله عليه وسلم و اشهرها بردة المديح للامام محمد البصيري ' : @poem.desc
+  def chapter_sharing_title
+    [@poem&.name(locale: I18n.locale), @chapter&.name(locale: I18n.locale)].compact.join(' - ')
+  end
+
+  def sharing_desc
+    [@poem&.desc(locale: I18n.locale), @chapter&.desc(locale: I18n.locale)].compact.join(' - ').presence || 'قصائد مدح المصطفي صلي الله عليه وسلم و اشهرها بردة المديح للامام محمد البصيري ' 
   end
 
   def device_type

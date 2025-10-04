@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     @poem ||= params[:id].present? ? @poems.find(params[:id]) : @poems.sample
     respond_to do |format|
       format.html do
-        @header = 'القصائد'
+        @header = t('navbar.poems')
         render 'layouts/home'
       end
       format.json do
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     @werds = Werd.all
     respond_to do |format|
       format.html do
-        @header = 'أوراد البرهامية'
+        @header = t('navbar.werds')
         render 'layouts/awrad'
       end
       format.json do
@@ -34,10 +34,10 @@ class ApplicationController < ActionController::Base
   end
 
   def show
-    @werd = Werd.find_by(name: params[:name])
+    @werd = Werd.find(params[:id])
     respond_to do |format|
       format.html do
-        @header = 'أوراد البرهامية' + ": " + @werd.name
+        @header = t('navbar.werds') + ": " + @werd.name
         render 'layouts/awrad_show'
       end
       format.json do
@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       @pagy, @poems = pagy(Poem.includes(:links, {chapters: [:lines, :links]}).published.order(id: :asc))
       format.html do
-        @header = 'قصائد مدح المصطفى'
+        @header = t('navbar.poems')
         render 'layouts/grid_home'
       end
       format.json do

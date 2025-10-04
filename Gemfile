@@ -79,6 +79,3 @@ gem 'pagy'
 
 
 gem 'scout_apm'
-
-
-

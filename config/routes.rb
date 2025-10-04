@@ -32,8 +32,8 @@ Rails.application.routes.draw do
       get :poem_quick_view
     end
   end
-  get 'awrad' => 'application#awrad'
-  get 'awrad/:name' => 'application#show'
+  get 'werds' => 'application#awrad'
+  get 'werds/:id' => 'application#show'
   get "mobile" =>  "application#mobile"
   get "privacy" =>  "application#privacy"
   root to: 'application#grid_home'

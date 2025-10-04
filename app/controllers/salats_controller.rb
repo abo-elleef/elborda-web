@@ -1,12 +1,11 @@
 class SalatsController < ApplicationController
   before_action :set_salat, only: [:show, :edit, :update, :destroy]
-  Header = 'صلاوات النبى'
   
   def index
     @salats = Salat.preload(:lines).published.all
     respond_to do |format|
       format.html do
-        @header = Header
+        @header = t('navbar.salats')
       end
       format.json do
         salats_json = @salats.map { |salat| SalatPresenter.new(salat).to_json }
@@ -16,7 +15,7 @@ class SalatsController < ApplicationController
   end
 
   def show
-    @header = Header + ': ' + @salat.name
+    @header = t('navbar.salats') + ': ' + @salat.name
   end
 
   def next

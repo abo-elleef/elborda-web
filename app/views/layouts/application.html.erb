@@ -89,7 +89,7 @@
           <%= link_to I18n.t('navbar.poems'), root_path, class: "nav-link #{ current_page?(root_path) || ['poems', 'chapters'].include?(controller_name) ? 'active' : ''}" %>
         </li>
         <li class="nav-item" role="presentation">
-          <%= link_to I18n.t('navbar.awrad'), awrad_path, class: "nav-link #{ ["awrad"].include?(action_name) || (action_name == 'show' && controller_name == 'application') ? 'active' : ''}" %>
+          <%= link_to I18n.t('navbar.werds'), werds_path, class: "nav-link #{ ["werds"].include?(action_name) || (action_name == 'show' && controller_name == 'application') ? 'active' : ''}" %>
         </li>
         <li class="nav-item" role="presentation">
           <%= link_to I18n.t('navbar.dalaels'), dalaels_path, class: "nav-link #{ ["dalaels"].include?(controller_name) ? 'active' : ''}" %>

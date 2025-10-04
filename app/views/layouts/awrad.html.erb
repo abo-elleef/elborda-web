@@ -2,7 +2,7 @@
   <div class="row pl-3 pr-3 pb-3">
     <% @werds.map do |werd| %>
       <div class="col col-md-3 offset-md-1 col-12 line-container mt-3 pt-3 pb-3">
-        <h1 class="text-center"> <%= link_to werd.name(locale: I18n.locale), "/awrad/#{werd.name}?locale=#{I18n.locale}"  %> </h1>
+        <h1 class="text-center"> <%= link_to werd.name(locale: I18n.locale), "/werds/#{werd.id}?locale=#{I18n.locale}"  %> </h1>
       </div>
     <% end %>
   </div>

@@ -13,7 +13,8 @@ class DalaelPresenter
       desc: dalael.desc.to_s,
       desc_en: dalael.desc_en.to_s,
       desc_fr: dalael.desc_fr.to_s,
-      textPages: dalael.lines.map(&:body)
+      textPages: dalael.lines.map(&:body),
+      links: dalael.links.map {|link| LinkPresenter.new(link).to_json}
     }
   end
 end

@@ -6,7 +6,7 @@ class LinkPresenter
 
   def to_json
     {
-      id: link.id.to_s,
+      id: link.id,
       link: link.link,
       source: link.source
     }

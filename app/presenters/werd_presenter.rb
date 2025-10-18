@@ -6,14 +6,15 @@ class WerdPresenter
 
   def to_json
     {
-      id: werd.id.to_s,
+      id: werd.id,
       name: werd.name,
       name_en: werd.name_en.to_s,
       name_fr: werd.name_fr.to_s,
       desc: werd.desc.to_s,
       desc_en: werd.desc_en.to_s,
       desc_fr: werd.desc_fr.to_s,
-      textPages: werd.lines.map(&:body)
+      textPages: werd.lines.map(&:body),
+      links: werd.links.map { |link| LinkPresenter.new(link).to_json }
     }
   end
 end

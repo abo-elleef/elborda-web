@@ -7,7 +7,7 @@ class MobilePresenter
 
   def present
     {
-        id: poem.id.to_s,
+        id: poem.id,
         name: poem.name.to_s,
         author: poem.author.to_s,
         desc: poem.desc.to_s,
@@ -16,6 +16,3 @@ class MobilePresenter
     }
   end
 end
-
-
-# chapters: poems.lines.each_slice(poem.chapter_size.presence || Poem::DEFAULT_CHAPTER_SIZE)

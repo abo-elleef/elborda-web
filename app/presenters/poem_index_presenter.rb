@@ -13,7 +13,7 @@ class PoemIndexPresenter
         desc: poem.desc,
         desc_en: poem.desc_en.to_s,
         desc_fr: poem.desc_fr.to_s,
-        chapters: poem.chapters.map{|chapter| ChapterPresenter.new(chapter).to_json}
+        chapters: poem.chapters.map{ |chapter| ChapterPresenter.new(chapter).to_json }
     }
   end
 end

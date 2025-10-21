@@ -38,4 +38,5 @@ log/*
 tmp/*
 yarn.lock
 .idea/Burda.iml
+.env
 

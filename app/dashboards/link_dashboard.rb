@@ -11,6 +11,8 @@ class LinkDashboard < Administrate::BaseDashboard
     id: Field::Number,
     link: Field::Text,
     linkable: Field::Polymorphic,
+    linkable_id: Field::Number,
+    linkable_type: Field::String,
     source: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -44,7 +46,8 @@ class LinkDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     link
-    linkable
+    linkable_id
+    linkable_type
     source
   ].freeze
 

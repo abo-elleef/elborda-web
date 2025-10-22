@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       get :poem_quick_view
     end
   end
-  get 'werds' => 'application#awrad'
+  get 'werds' => 'application#werds'
   get 'werds/:id' => 'application#show'
   get "mobile" =>  "application#mobile"
   get "privacy" =>  "application#privacy"

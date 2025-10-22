@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def awrad
+  def werds
     @werds = Werd.all
     respond_to do |format|
       format.html do

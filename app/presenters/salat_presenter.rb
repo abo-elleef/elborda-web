@@ -13,7 +13,7 @@ class SalatPresenter
       desc: salat.desc.to_s,
       desc_en: salat.desc_en.to_s,
       desc_fr: salat.desc_fr.to_s,
-      textPages: salat.lines.map(&:body),
+      lines: salat.lines.map(&:body),
       links: salat.links.map { |link| LinkPresenter.new(link).to_json }
     }
   end

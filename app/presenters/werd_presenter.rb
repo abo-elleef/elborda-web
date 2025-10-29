@@ -13,7 +13,7 @@ class WerdPresenter
       desc: werd.desc.to_s,
       desc_en: werd.desc_en.to_s,
       desc_fr: werd.desc_fr.to_s,
-      textPages: werd.lines.map(&:body),
+      lines: werd.lines.map(&:body),
       links: werd.links.map { |link| LinkPresenter.new(link).to_json }
     }
   end
